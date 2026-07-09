@@ -44,43 +44,39 @@ function CredentialIcon({ icon }: { icon: (typeof CREDENTIAL_FEATURES)[number]['
 
 export default function VerifiedCredential() {
   return (
-    <section className="relative overflow-hidden bg-white">
-      <img
-        src={credentialImg}
-        alt="Digital certificate and global verification"
-        loading="lazy"
-        className="absolute inset-0 h-full w-full object-cover"
-      />
-      <div className="absolute inset-0 bg-gradient-to-l from-white via-white/75 to-white/10 sm:via-white/55 sm:to-transparent" />
+    <section className="grid grid-cols-1 bg-white lg:grid-cols-2">
+      <div className="order-2 bg-slate-50 lg:order-1">
+        <img
+          src={credentialImg}
+          alt="Digital certificate and global verification"
+          loading="lazy"
+          className="h-full w-full object-contain p-8 lg:p-12"
+        />
+      </div>
 
-      <div className="relative mx-auto flex max-w-[1600px] justify-end px-6 py-20 sm:px-10 lg:px-16 lg:py-28">
-        <div className="w-full max-w-xl text-right">
-          <h2 className="text-3xl font-bold leading-tight text-navy sm:text-4xl lg:text-5xl">
-            More Than a Certificate.
-            <br />
-            A Credential That Can Be Verified.
-          </h2>
-          <p className="ml-auto mt-5 max-w-lg text-lg text-navy/60">
-            Every CertiByt credential carries a unique identity and can be publicly verified by
-            anyone, anywhere.
-          </p>
+      <div className="order-1 flex flex-col justify-center px-6 py-16 sm:px-10 lg:order-2 lg:px-16 lg:py-24">
+        <h2 className="text-3xl font-bold leading-tight text-navy sm:text-4xl lg:text-5xl">
+          More Than a Certificate.
+          <br />
+          A Credential That Can Be Verified.
+        </h2>
+        <p className="mt-5 max-w-lg text-lg text-navy/60">
+          Every CertiByt credential carries a unique identity and can be publicly verified by
+          anyone, anywhere.
+        </p>
 
-          <div className="mt-12 flex flex-col gap-6">
-            {CREDENTIAL_FEATURES.map((f) => (
-              <div
-                key={f.title}
-                className="flex flex-row-reverse items-start gap-4 rounded-xl border border-navy/10 bg-white/80 p-4 text-right shadow-sm backdrop-blur-sm"
-              >
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-royal/10">
-                  <CredentialIcon icon={f.icon} />
-                </div>
-                <div>
-                  <p className="text-base font-semibold text-navy">{f.title}</p>
-                  <p className="text-sm text-navy/50">{f.desc}</p>
-                </div>
+        <div className="mt-12 flex flex-col gap-6">
+          {CREDENTIAL_FEATURES.map((f) => (
+            <div key={f.title} className="flex items-start gap-4">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-royal/10">
+                <CredentialIcon icon={f.icon} />
               </div>
-            ))}
-          </div>
+              <div>
+                <p className="text-base font-semibold text-navy">{f.title}</p>
+                <p className="text-sm text-navy/50">{f.desc}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
