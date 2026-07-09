@@ -138,8 +138,7 @@ export default function HowItWorks() {
                   <span className="absolute -top-2 left-1/2 z-10 flex h-9 w-9 -translate-x-1/2 items-center justify-center rounded-full border-[3px] border-slate-50 bg-gradient-to-br from-royal to-royal-700 text-xs font-bold text-white shadow-glow">
                     {step.number}
                   </span>
-                  <div className="absolute inset-0 rounded-full bg-cyan-glow/20 blur-xl" aria-hidden />
-                  <div className="relative flex h-36 w-36 items-center justify-center overflow-hidden rounded-full border border-royal/15 bg-white p-5 shadow-glow ring-1 ring-navy/5 transition-shadow duration-300 group-hover:shadow-[0_0_36px_0_rgba(94,234,212,0.5)]">
+                  <div className="relative flex h-36 w-36 items-center justify-center overflow-hidden rounded-full border border-royal/15 bg-white p-5 shadow-sm ring-1 ring-navy/5 transition-shadow duration-300 group-hover:shadow-md">
                     <img src={step.image} alt="" className="h-full w-full object-contain" />
                   </div>
                   <div className="mx-auto mt-2 h-3 w-28 rounded-full bg-navy/10 blur-md" aria-hidden />
