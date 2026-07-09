@@ -1,4 +1,4 @@
-import heroImg from '../assets/Global network and digital certification 2.png'
+import heroImg from '../assets/hero-globe.webp'
 
 const FEATURES = [
   { title: 'Secure Assessments', desc: 'AI-proctored & monitored', icon: 'shield' },
@@ -38,6 +38,8 @@ export default function Hero() {
         src={heroImg}
         alt=""
         aria-hidden
+        fetchPriority="high"
+        decoding="async"
         className="absolute inset-0 h-full w-full object-cover"
       />
       <div
