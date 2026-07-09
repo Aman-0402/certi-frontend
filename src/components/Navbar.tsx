@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { Link, useLocation } from 'wouter'
 import logo from '../assets/light_themeee.png'
 
 type DropdownItem = { label: string; href: string }
@@ -85,6 +86,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const navRef = useRef<HTMLElement>(null)
   const [scrolled, setScrolled] = useState(false)
+  const [location] = useLocation()
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
@@ -118,16 +120,21 @@ export default function Navbar() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-[1600px] items-center justify-between px-6 sm:px-10 lg:px-16">
-        <a href="/" className="flex items-center gap-2 shrink-0">
+        <Link href="/" className="flex items-center gap-2 shrink-0">
           <img src={logo} alt="Certibyt" className="h-8 w-auto" />
-        </a>
+        </Link>
 
         <div className="hidden items-center gap-8 lg:flex">
           <NavDropdown id="certifications" open={openDropdown === 'certifications'} onToggle={toggleDropdown} onClose={closeDropdown} />
           <NavDropdown id="organizations" open={openDropdown === 'organizations'} onToggle={toggleDropdown} onClose={closeDropdown} />
-          <a href="/how-it-works" className="text-sm font-medium text-navy/80 transition-colors hover:text-royal">
+          <Link
+            href="/how-it-works"
+            className={`text-sm font-medium transition-colors hover:text-royal ${
+              location === '/how-it-works' ? 'text-royal' : 'text-navy/80'
+            }`}
+          >
             How It Works
-          </a>
+          </Link>
           <a href="/verify" className="text-sm font-medium text-navy/80 transition-colors hover:text-royal">
             Verify Certificate
           </a>

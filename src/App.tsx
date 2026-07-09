@@ -1,17 +1,16 @@
+import { Route, Switch } from 'wouter'
 import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import TrustedBy from './components/TrustedBy'
-import Certifications from './components/Certifications'
-import JourneySteps from './components/JourneySteps'
+import Home from './pages/Home'
+import HowItWorks from './pages/HowItWorks'
 
 function App() {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      <Hero />
-      <TrustedBy />
-      <Certifications />
-      <JourneySteps />
+      <Switch>
+        <Route path="/how-it-works" component={HowItWorks} />
+        <Route path="/" component={Home} />
+      </Switch>
     </div>
   )
 }
