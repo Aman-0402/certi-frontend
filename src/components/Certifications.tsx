@@ -86,8 +86,8 @@ export default function Certifications() {
           </a>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
-          {CERTS.map((cert) => (
+        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {CERTS.slice(0, 4).map((cert) => (
             <div
               key={cert.title}
               className="flex flex-col rounded-2xl border border-navy/10 bg-white p-6 shadow-sm transition-shadow hover:shadow-glow"
