@@ -1,8 +1,14 @@
+import chooseImg from '../assets/icons/Choose a Certification_converted.webp'
+import purchaseImg from '../assets/icons/Purchase Voucher & Access Exam_converted.webp'
+import assessImg from '../assets/icons/Take Secure Assessment_converted.webp'
+import evaluateImg from '../assets/icons/Get Evaluated & Results_converted.webp'
+import earnImg from '../assets/icons/Earn Your Digital Certificate_converted.webp'
+
 type Step = {
   number: string
   title: string
   desc: string
-  icon: 'choose' | 'purchase' | 'assess' | 'evaluate' | 'earn'
+  image: string
 }
 
 const STEPS: Step[] = [
@@ -10,31 +16,31 @@ const STEPS: Step[] = [
     number: '01',
     title: 'Choose a Certification',
     desc: 'Explore a wide range of professional certifications and select the one that matches your goals.',
-    icon: 'choose',
+    image: chooseImg,
   },
   {
     number: '02',
     title: 'Purchase Voucher & Access Exam',
     desc: 'Buy a voucher securely and get instant access to your chosen certification exam.',
-    icon: 'purchase',
+    image: purchaseImg,
   },
   {
     number: '03',
     title: 'Take Secure Assessment',
     desc: 'Attempt the exam in a secure, AI-proctored environment with real-time monitoring.',
-    icon: 'assess',
+    image: assessImg,
   },
   {
     number: '04',
     title: 'Get Evaluated & Results',
     desc: 'Your responses are auto-evaluated and results are generated instantly after completion.',
-    icon: 'evaluate',
+    image: evaluateImg,
   },
   {
     number: '05',
     title: 'Earn Your Digital Certificate',
     desc: 'Receive your verifiable digital certificate and share it globally with confidence.',
-    icon: 'earn',
+    image: earnImg,
   },
 ]
 
@@ -46,59 +52,6 @@ const FEATURES: Feature[] = [
   { title: 'Tamper-Proof Certificates', desc: 'Blockchain-secured digital certificates you can trust.', icon: 'document' },
   { title: 'Instant & Convenient', desc: 'Take exams anytime, anywhere with a seamless experience.', icon: 'clock' },
 ]
-
-function StepIcon({ icon }: { icon: Step['icon'] }) {
-  const common = { className: 'h-9 w-9 text-royal', viewBox: '0 0 24 24', fill: 'none' } as const
-
-  if (icon === 'choose') {
-    return (
-      <svg {...common}>
-        <rect x="4" y="5" width="16" height="14" rx="2" stroke="currentColor" strokeWidth="1.6" />
-        <path d="M4 9h16" stroke="currentColor" strokeWidth="1.6" />
-        <circle cx="10.5" cy="14" r="2.2" stroke="currentColor" strokeWidth="1.4" />
-        <path d="M12.2 15.7 14 17.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-      </svg>
-    )
-  }
-  if (icon === 'purchase') {
-    return (
-      <svg {...common}>
-        <path d="M4 5h2l1.4 9.2a2 2 0 0 0 2 1.7h6.8a2 2 0 0 0 2-1.6L19.5 8H7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-        <circle cx="10" cy="20" r="1.2" stroke="currentColor" strokeWidth="1.3" />
-        <circle cx="16.5" cy="20" r="1.2" stroke="currentColor" strokeWidth="1.3" />
-        <path d="M15.5 5.5 17 4l1.5 1.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    )
-  }
-  if (icon === 'assess') {
-    return (
-      <svg {...common}>
-        <rect x="3.5" y="5" width="17" height="11" rx="1.6" stroke="currentColor" strokeWidth="1.6" />
-        <path d="M9 20h6M12 16v4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-        <circle cx="12" cy="9.3" r="1.8" stroke="currentColor" strokeWidth="1.4" />
-        <path d="M15.5 8a2.6 2.6 0 0 1 0 3.4" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
-      </svg>
-    )
-  }
-  if (icon === 'evaluate') {
-    return (
-      <svg {...common}>
-        <path d="M4 19V13M9.5 19V9M15 19v-6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-        <path d="M4 12l5.5-4.5L15 10.5l5-5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-        <circle cx="20" cy="5.5" r="2.6" fill="white" stroke="currentColor" strokeWidth="1.4" />
-        <path d="M18.9 5.5l.8.8 1.4-1.6" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    )
-  }
-  return (
-    <svg {...common}>
-      <rect x="5" y="4" width="14" height="12" rx="1.5" stroke="currentColor" strokeWidth="1.6" />
-      <path d="M8 8h8M8 11h5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-      <circle cx="12" cy="18" r="3" stroke="currentColor" strokeWidth="1.4" />
-      <path d="M10.5 18l1 1 2-2" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  )
-}
 
 function FeatureIcon({ icon }: { icon: Feature['icon'] }) {
   const common = { className: 'h-6 w-6 text-royal', viewBox: '0 0 24 24', fill: 'none' } as const
@@ -180,8 +133,8 @@ export default function HowItWorks() {
                   <span className="absolute -left-2 -top-2 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-royal text-xs font-bold text-white shadow-glow">
                     {step.number}
                   </span>
-                  <div className="relative flex h-28 w-28 items-center justify-center rounded-full border border-royal/15 bg-white shadow-glow">
-                    <StepIcon icon={step.icon} />
+                  <div className="relative flex h-28 w-28 items-center justify-center overflow-hidden rounded-full border border-royal/15 bg-white shadow-glow">
+                    <img src={step.image} alt="" className="h-full w-full object-cover" />
                   </div>
                   <div className="mx-auto mt-1 h-3 w-20 rounded-full bg-royal/10 blur-sm" aria-hidden />
                 </div>
