@@ -47,9 +47,9 @@ export default function SecureAssessment() {
         src={assessmentImg}
         alt="Secure online exam in a modern workspace"
         loading="lazy"
-        className="absolute inset-0 h-full w-full object-cover opacity-60"
+        className="absolute inset-0 h-full w-full object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/80 to-navy/30" />
+      <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/70 to-navy/10 sm:via-navy/60 sm:to-transparent" />
 
       <div className="relative mx-auto max-w-[1600px] px-6 py-20 sm:px-10 lg:px-16 lg:py-28">
         <div className="max-w-lg">
