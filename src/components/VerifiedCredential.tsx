@@ -44,8 +44,16 @@ function CredentialIcon({ icon }: { icon: (typeof CREDENTIAL_FEATURES)[number]['
 
 export default function VerifiedCredential() {
   return (
-    <section className="bg-white">
-      <div className="mx-auto max-w-[1600px] px-6 py-20 sm:px-10 lg:px-16 lg:py-28">
+    <section className="relative overflow-hidden bg-white">
+      <img
+        src={credentialImg}
+        alt="Digital certificate and global verification"
+        loading="lazy"
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-white via-white/75 to-white/10 sm:via-white/55 sm:to-transparent" />
+
+      <div className="relative mx-auto max-w-[1600px] px-6 py-20 sm:px-10 lg:px-16 lg:py-28">
         <div className="max-w-2xl">
           <h2 className="text-3xl font-bold leading-tight text-navy sm:text-4xl lg:text-5xl">
             More Than a Certificate.
@@ -58,27 +66,21 @@ export default function VerifiedCredential() {
           </p>
         </div>
 
-        <div className="mt-12 flex flex-col gap-10 lg:flex-row lg:items-center">
-          <img
-            src={credentialImg}
-            alt="Digital certificate and global verification"
-            loading="lazy"
-            className="w-full max-w-xl rounded-2xl border border-navy/10 shadow-sm lg:w-3/5"
-          />
-
-          <div className="flex flex-1 flex-col gap-6">
-            {CREDENTIAL_FEATURES.map((f) => (
-              <div key={f.title} className="flex items-start gap-4">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-royal/10">
-                  <CredentialIcon icon={f.icon} />
-                </div>
-                <div>
-                  <p className="text-base font-semibold text-navy">{f.title}</p>
-                  <p className="text-sm text-navy/50">{f.desc}</p>
-                </div>
+        <div className="mt-12 flex flex-col gap-6 sm:max-w-sm">
+          {CREDENTIAL_FEATURES.map((f) => (
+            <div
+              key={f.title}
+              className="flex items-start gap-4 rounded-xl border border-navy/10 bg-white/80 p-4 shadow-sm backdrop-blur-sm"
+            >
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-royal/10">
+                <CredentialIcon icon={f.icon} />
               </div>
-            ))}
-          </div>
+              <div>
+                <p className="text-base font-semibold text-navy">{f.title}</p>
+                <p className="text-sm text-navy/50">{f.desc}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
