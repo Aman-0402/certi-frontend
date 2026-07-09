@@ -2,6 +2,7 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import TrustedBy from './components/TrustedBy'
 import Certifications from './components/Certifications'
+import JourneySteps from './components/JourneySteps'
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Hero />
       <TrustedBy />
       <Certifications />
+      <JourneySteps />
     </div>
   )
 }
