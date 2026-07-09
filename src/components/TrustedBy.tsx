@@ -59,7 +59,7 @@ function TrustIcon({ icon }: { icon: (typeof ITEMS)[number]['icon'] }) {
 export default function TrustedBy() {
   return (
     <section className="border-t border-navy/10 bg-slate-50">
-      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-[1600px] px-6 py-10 sm:px-10 lg:px-16">
         <h2 className="text-center text-lg font-bold text-navy">
           Trusted by Institutions, Organizations &amp; Professionals
         </h2>

@@ -117,7 +117,7 @@ export default function Navbar() {
           : 'border-b border-transparent bg-transparent'
       }`}
     >
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-16 max-w-[1600px] items-center justify-between px-6 sm:px-10 lg:px-16">
         <a href="/" className="flex items-center gap-2 shrink-0">
           <img src={logo} alt="Certibyt" className="h-8 w-auto" />
         </a>

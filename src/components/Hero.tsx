@@ -7,7 +7,7 @@ const FEATURES = [
 ] as const
 
 function FeatureIcon({ icon }: { icon: (typeof FEATURES)[number]['icon'] }) {
-  const common = { className: 'h-5 w-5 text-royal', viewBox: '0 0 24 24', fill: 'none' } as const
+  const common = { className: 'h-6 w-6 text-royal', viewBox: '0 0 24 24', fill: 'none' } as const
   if (icon === 'shield') {
     return (
       <svg {...common}>
@@ -45,9 +45,9 @@ export default function Hero() {
         className="absolute inset-0 bg-gradient-to-r from-white via-white/60 to-transparent sm:via-30% sm:to-60%"
       />
 
-      <div className="relative mx-auto flex min-h-screen max-w-7xl items-center px-4 pt-16 sm:px-6 lg:px-8">
-        <div className="max-w-xl">
-          <h1 className="text-4xl font-bold leading-tight text-navy sm:text-5xl">
+      <div className="relative mx-auto flex min-h-screen max-w-[1600px] items-center px-6 pt-16 sm:px-10 lg:px-16">
+        <div className="max-w-2xl">
+          <h1 className="text-5xl font-bold leading-tight text-navy sm:text-6xl lg:text-7xl">
             Prove Your Skills.
             <br />
             Earn Credentials That
@@ -55,33 +55,33 @@ export default function Hero() {
             <span className="text-royal">Travel With You.</span>
           </h1>
 
-          <p className="mt-5 max-w-md text-base text-navy/60">
+          <p className="mt-6 max-w-lg text-xl text-navy/60">
             Take secure professional assessments and earn digitally verifiable
             certificates built for a connected world.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-10 flex flex-wrap gap-4">
             <a
               href="/certifications"
-              className="rounded-lg bg-royal px-6 py-3 text-sm font-semibold text-white shadow-glow transition-colors hover:bg-royal-600"
+              className="rounded-lg bg-royal px-8 py-4 text-base font-semibold text-white shadow-glow transition-colors hover:bg-royal-600"
             >
               Explore Certifications
             </a>
             <a
               href="/verify"
-              className="rounded-lg border border-royal/40 bg-white/70 px-6 py-3 text-sm font-medium text-royal backdrop-blur-sm transition-colors hover:bg-royal/5"
+              className="rounded-lg border border-royal/40 bg-white/70 px-8 py-4 text-base font-medium text-royal backdrop-blur-sm transition-colors hover:bg-royal/5"
             >
               Verify a Certificate
             </a>
           </div>
 
-          <div className="mt-10 flex flex-wrap gap-x-8 gap-y-4">
+          <div className="mt-12 flex flex-wrap gap-x-10 gap-y-6">
             {FEATURES.map((f) => (
-              <div key={f.title} className="flex items-start gap-2">
+              <div key={f.title} className="flex items-start gap-3">
                 <FeatureIcon icon={f.icon} />
                 <div>
-                  <p className="text-sm font-semibold text-navy">{f.title}</p>
-                  <p className="text-xs text-navy/50">{f.desc}</p>
+                  <p className="text-base font-semibold text-navy">{f.title}</p>
+                  <p className="text-sm text-navy/50">{f.desc}</p>
                 </div>
               </div>
             ))}
