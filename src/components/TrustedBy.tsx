@@ -8,7 +8,7 @@ const ITEMS = [
 ] as const
 
 function TrustIcon({ icon }: { icon: (typeof ITEMS)[number]['icon'] }) {
-  const common = { className: 'h-6 w-6 text-royal', viewBox: '0 0 24 24', fill: 'none' } as const
+  const common = { className: 'h-7 w-7 text-royal', viewBox: '0 0 24 24', fill: 'none' } as const
 
   if (icon === 'globe') {
     return (
@@ -59,18 +59,18 @@ function TrustIcon({ icon }: { icon: (typeof ITEMS)[number]['icon'] }) {
 export default function TrustedBy() {
   return (
     <section className="border-t border-navy/10 bg-slate-50">
-      <div className="mx-auto max-w-[1600px] px-6 py-10 sm:px-10 lg:px-16">
-        <h2 className="text-center text-lg font-bold text-navy">
+      <div className="mx-auto max-w-[1600px] px-6 py-14 sm:px-10 lg:px-16">
+        <h2 className="text-center text-2xl font-bold text-navy sm:text-3xl">
           Trusted by Institutions, Organizations &amp; Professionals
         </h2>
 
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-x-0 gap-y-6">
+        <div className="mt-12 flex flex-wrap items-center justify-between gap-x-4 gap-y-8">
           {ITEMS.map((item, i) => (
             <div key={item.label} className="flex items-center">
-              {i > 0 && <span className="mx-6 hidden h-6 w-px bg-navy/15 sm:block" aria-hidden />}
-              <div className="flex items-center gap-2">
+              {i > 0 && <span className="mr-4 hidden h-8 w-px bg-navy/15 sm:block lg:mr-6" aria-hidden />}
+              <div className="flex items-center gap-3">
                 <TrustIcon icon={item.icon} />
-                <span className="text-sm font-semibold text-navy/80">{item.label}</span>
+                <span className="text-base font-semibold text-navy/80 lg:text-lg">{item.label}</span>
               </div>
             </div>
           ))}
