@@ -43,7 +43,7 @@ function NavDropdown({
   onClose: () => void
 }) {
   return (
-    <div className="relative" onMouseEnter={() => onToggle(id)} onMouseLeave={onClose}>
+    <div className="relative">
       <button
         type="button"
         onClick={() => onToggle(id)}
@@ -109,7 +109,7 @@ export default function Navbar() {
     setOpenDropdown(null)
   }, [location])
 
-  const toggleDropdown = (id: DropdownKey) => setOpenDropdown(id)
+  const toggleDropdown = (id: DropdownKey) => setOpenDropdown((current) => (current === id ? null : id))
   const closeDropdown = () => setOpenDropdown(null)
 
   const navLinkClass = (path: string) =>
