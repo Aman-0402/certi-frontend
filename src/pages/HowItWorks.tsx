@@ -115,12 +115,17 @@ export default function HowItWorks() {
 
       <section className="bg-slate-50 pb-20">
         <div className="mx-auto max-w-[1600px] px-6 sm:px-10 lg:px-16">
-          <div className="grid grid-cols-1 items-stretch gap-x-6 gap-y-16 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="relative grid grid-cols-1 items-stretch gap-x-6 gap-y-16 sm:grid-cols-2 lg:grid-cols-5">
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-x-16 top-16 hidden h-px bg-gradient-to-r from-transparent via-royal/25 to-transparent lg:block"
+            />
+
             {STEPS.map((step, i) => (
-              <div key={step.number} className="relative flex h-full flex-col items-center text-center">
+              <div key={step.number} className="group relative flex h-full flex-col items-center text-center">
                 {i < STEPS.length - 1 && (
                   <svg
-                    className="absolute -right-2 top-16 hidden h-4 w-8 -translate-y-1/2 text-royal/50 lg:block"
+                    className="absolute -right-2 top-16 z-10 hidden h-4 w-8 -translate-y-1/2 text-royal/60 lg:block"
                     viewBox="0 0 32 16"
                     fill="none"
                     aria-hidden
@@ -129,20 +134,21 @@ export default function HowItWorks() {
                   </svg>
                 )}
 
-                <div className="relative shrink-0">
-                  <span className="absolute -top-1.5 left-1/2 z-10 flex h-8 w-8 -translate-x-1/2 items-center justify-center rounded-full border-2 border-slate-50 bg-royal text-xs font-bold text-white shadow-glow">
+                <div className="relative shrink-0 transition-transform duration-300 group-hover:-translate-y-1">
+                  <span className="absolute -top-2 left-1/2 z-10 flex h-9 w-9 -translate-x-1/2 items-center justify-center rounded-full border-[3px] border-slate-50 bg-gradient-to-br from-royal to-royal-700 text-xs font-bold text-white shadow-glow">
                     {step.number}
                   </span>
-                  <div className="flex h-32 w-32 items-center justify-center overflow-hidden rounded-full border border-royal/15 bg-white p-4 shadow-glow">
+                  <div className="absolute inset-0 rounded-full bg-cyan-glow/20 blur-xl" aria-hidden />
+                  <div className="relative flex h-36 w-36 items-center justify-center overflow-hidden rounded-full border border-royal/15 bg-white p-5 shadow-glow ring-1 ring-navy/5 transition-shadow duration-300 group-hover:shadow-[0_0_36px_0_rgba(94,234,212,0.5)]">
                     <img src={step.image} alt="" className="h-full w-full object-contain" />
                   </div>
-                  <div className="mx-auto mt-2 h-3 w-24 rounded-full bg-royal/10 blur-sm" aria-hidden />
+                  <div className="mx-auto mt-2 h-3 w-28 rounded-full bg-navy/10 blur-md" aria-hidden />
                 </div>
 
-                <div className="mt-6 flex w-full flex-1 flex-col rounded-2xl border border-navy/10 bg-white p-5 shadow-sm">
+                <div className="mt-8 flex w-full flex-1 flex-col rounded-2xl border border-navy/10 bg-white p-6 shadow-sm transition-shadow duration-300 group-hover:shadow-md">
                   <h3 className="text-base font-bold leading-snug text-navy">{step.title}</h3>
-                  <div className="mx-auto mt-2 h-0.5 w-8 rounded-full bg-royal/60" />
-                  <p className="mt-3 text-sm text-navy/60">{step.desc}</p>
+                  <div className="mx-auto mt-2 h-0.5 w-10 rounded-full bg-royal/60" />
+                  <p className="mt-3 text-sm leading-relaxed text-navy/60">{step.desc}</p>
                 </div>
               </div>
             ))}
