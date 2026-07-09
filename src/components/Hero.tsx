@@ -45,37 +45,35 @@ export default function Hero() {
         className="absolute inset-0 bg-gradient-to-r from-white via-white/60 to-transparent sm:via-30% sm:to-60%"
       />
 
-      <div className="relative mx-auto flex min-h-screen max-w-[1600px] items-center px-6 pt-16 sm:px-10 lg:px-16">
+      <div className="relative mx-auto flex min-h-screen max-w-[1600px] items-center px-6 pb-16 pt-28 sm:px-10 lg:px-16">
         <div className="max-w-2xl">
-          <h1 className="text-5xl font-bold leading-tight text-navy sm:text-6xl lg:text-7xl">
+          <h1 className="text-4xl font-bold leading-[1.15] text-navy sm:text-5xl lg:text-6xl">
             Prove Your Skills.
             <br />
-            Earn Credentials That
-            <br />
-            <span className="text-royal">Travel With You.</span>
+            Earn Credentials That <span className="text-royal">Travel With You.</span>
           </h1>
 
-          <p className="mt-6 max-w-lg text-xl text-navy/60">
+          <p className="mt-6 max-w-lg text-lg text-navy/60">
             Take secure professional assessments and earn digitally verifiable
             certificates built for a connected world.
           </p>
 
-          <div className="mt-10 flex flex-wrap gap-4">
+          <div className="mt-8 flex flex-wrap gap-4">
             <a
               href="/certifications"
-              className="rounded-lg bg-royal px-8 py-4 text-base font-semibold text-white shadow-glow transition-colors hover:bg-royal-600"
+              className="rounded-lg bg-royal px-7 py-3.5 text-sm font-semibold text-white shadow-glow transition-colors hover:bg-royal-600"
             >
               Explore Certifications
             </a>
             <a
               href="/verify"
-              className="rounded-lg border border-royal/40 bg-white/70 px-8 py-4 text-base font-medium text-royal backdrop-blur-sm transition-colors hover:bg-royal/5"
+              className="rounded-lg border border-royal/40 bg-white/70 px-7 py-3.5 text-sm font-medium text-royal backdrop-blur-sm transition-colors hover:bg-royal/5"
             >
               Verify a Certificate
             </a>
           </div>
 
-          <div className="mt-12 flex flex-wrap gap-x-10 gap-y-6">
+          <div className="mt-10 flex flex-wrap gap-x-10 gap-y-6">
             {FEATURES.map((f) => (
               <div key={f.title} className="flex items-start gap-3">
                 <FeatureIcon icon={f.icon} />
