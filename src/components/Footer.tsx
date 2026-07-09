@@ -1,3 +1,4 @@
+import { Link } from 'wouter'
 import logo from '../assets/dark_themeee.png'
 
 const COLUMNS = [
@@ -103,9 +104,9 @@ export default function Footer() {
               <ul className="mt-4 flex flex-col gap-3">
                 {col.links.map((link) => (
                   <li key={link.href}>
-                    <a href={link.href} className="text-sm text-white/50 transition-colors hover:text-cyan-glow">
+                    <Link href={link.href} className="text-sm text-white/50 transition-colors hover:text-cyan-glow">
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -116,8 +117,8 @@ export default function Footer() {
         <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row">
           <p className="text-sm text-white/40">&copy; {new Date().getFullYear()} CertiByt. All rights reserved.</p>
           <div className="flex gap-6 text-sm text-white/40">
-            <a href="/privacy" className="hover:text-cyan-glow">Privacy Policy</a>
-            <a href="/terms" className="hover:text-cyan-glow">Terms of Service</a>
+            <Link href="/privacy" className="hover:text-cyan-glow">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-cyan-glow">Terms of Service</Link>
           </div>
         </div>
       </div>

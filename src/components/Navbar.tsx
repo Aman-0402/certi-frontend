@@ -61,19 +61,16 @@ function NavDropdown({
       </button>
 
       {open && (
-        <div
-          role="menu"
-          className="absolute left-0 top-full mt-3 w-64 rounded-xl border border-navy/10 bg-white/90 p-2 shadow-glow backdrop-blur-lg"
-        >
+        <div className="absolute left-0 top-full mt-3 w-64 rounded-xl border border-navy/10 bg-white/90 p-2 shadow-glow backdrop-blur-lg">
           {DROPDOWNS[id].map((item) => (
-            <a
+            <Link
               key={item.href}
               href={item.href}
-              role="menuitem"
+              onClick={onClose}
               className="block rounded-lg px-3 py-2 text-sm text-navy/80 transition-colors hover:bg-royal/10 hover:text-royal"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </div>
       )}
@@ -107,8 +104,16 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    setMobileOpen(false)
+    setOpenDropdown(null)
+  }, [location])
+
   const toggleDropdown = (id: DropdownKey) => setOpenDropdown(id)
   const closeDropdown = () => setOpenDropdown(null)
+
+  const navLinkClass = (path: string) =>
+    `text-sm font-medium transition-colors hover:text-royal ${location === path ? 'text-royal' : 'text-navy/80'}`
 
   return (
     <nav
@@ -127,36 +132,31 @@ export default function Navbar() {
         <div className="hidden items-center gap-8 lg:flex">
           <NavDropdown id="certifications" open={openDropdown === 'certifications'} onToggle={toggleDropdown} onClose={closeDropdown} />
           <NavDropdown id="organizations" open={openDropdown === 'organizations'} onToggle={toggleDropdown} onClose={closeDropdown} />
-          <Link
-            href="/how-it-works"
-            className={`text-sm font-medium transition-colors hover:text-royal ${
-              location === '/how-it-works' ? 'text-royal' : 'text-navy/80'
-            }`}
-          >
+          <Link href="/how-it-works" className={navLinkClass('/how-it-works')}>
             How It Works
           </Link>
-          <a href="/verify" className="text-sm font-medium text-navy/80 transition-colors hover:text-royal">
+          <Link href="/verify" className={navLinkClass('/verify')}>
             Verify Certificate
-          </a>
-          <a href="/about" className="text-sm font-medium text-navy/80 transition-colors hover:text-royal">
+          </Link>
+          <Link href="/about" className={navLinkClass('/about')}>
             About Us
-          </a>
+          </Link>
           <NavDropdown id="resources" open={openDropdown === 'resources'} onToggle={toggleDropdown} onClose={closeDropdown} />
         </div>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <a
+          <Link
             href="/sign-in"
             className="rounded-lg border border-royal/40 px-4 py-2 text-sm font-medium text-royal transition-colors hover:bg-royal/5"
           >
             Sign In
-          </a>
-          <a
+          </Link>
+          <Link
             href="/get-certified"
             className="rounded-lg bg-royal px-4 py-2 text-sm font-semibold text-white shadow-glow transition-colors hover:bg-royal-600"
           >
             Get Certified
-          </a>
+          </Link>
         </div>
 
         <button
@@ -177,27 +177,27 @@ export default function Navbar() {
       </div>
 
       {mobileOpen && (
-        <div className="border-t border-navy/10 bg-white/95 px-4 pb-6 pt-2 backdrop-blur-xl lg:hidden">
+        <div className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-navy/10 bg-white/95 px-4 pb-6 pt-2 backdrop-blur-xl lg:hidden">
           {(Object.keys(DROPDOWNS) as DropdownKey[]).map((key) => (
             <div key={key} className="border-b border-navy/5 py-2">
               <p className="px-1 py-2 text-sm font-semibold text-navy">{DROPDOWN_LABELS[key]}</p>
               {DROPDOWNS[key].map((item) => (
-                <a key={item.href} href={item.href} className="block rounded-lg px-3 py-2 text-sm text-navy/70 hover:text-royal">
+                <Link key={item.href} href={item.href} className="block rounded-lg px-3 py-2 text-sm text-navy/70 hover:text-royal">
                   {item.label}
-                </a>
+                </Link>
               ))}
             </div>
           ))}
-          <a href="/how-it-works" className="block px-1 py-3 text-sm font-medium text-navy/80">How It Works</a>
-          <a href="/verify" className="block px-1 py-3 text-sm font-medium text-navy/80">Verify Certificate</a>
-          <a href="/about" className="block px-1 py-3 text-sm font-medium text-navy/80">About Us</a>
+          <Link href="/how-it-works" className="block px-1 py-3 text-sm font-medium text-navy/80">How It Works</Link>
+          <Link href="/verify" className="block px-1 py-3 text-sm font-medium text-navy/80">Verify Certificate</Link>
+          <Link href="/about" className="block px-1 py-3 text-sm font-medium text-navy/80">About Us</Link>
           <div className="mt-3 flex flex-col gap-2">
-            <a href="/sign-in" className="rounded-lg border border-royal/40 px-4 py-2 text-center text-sm font-medium text-royal">
+            <Link href="/sign-in" className="rounded-lg border border-royal/40 px-4 py-2 text-center text-sm font-medium text-royal">
               Sign In
-            </a>
-            <a href="/get-certified" className="rounded-lg bg-royal px-4 py-2 text-center text-sm font-semibold text-white shadow-glow">
+            </Link>
+            <Link href="/get-certified" className="rounded-lg bg-royal px-4 py-2 text-center text-sm font-semibold text-white shadow-glow">
               Get Certified
-            </a>
+            </Link>
           </div>
         </div>
       )}

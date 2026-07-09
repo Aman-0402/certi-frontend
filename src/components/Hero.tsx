@@ -1,3 +1,4 @@
+import { Link } from 'wouter'
 import heroImg from '../assets/hero-globe.webp'
 
 const FEATURES = [
@@ -61,18 +62,18 @@ export default function Hero() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
-            <a
+            <Link
               href="/certifications"
               className="rounded-lg bg-royal px-7 py-3.5 text-sm font-semibold text-white shadow-glow transition-colors hover:bg-royal-600"
             >
               Explore Certifications
-            </a>
-            <a
+            </Link>
+            <Link
               href="/verify"
               className="rounded-lg border border-royal/40 bg-white/70 px-7 py-3.5 text-sm font-medium text-royal backdrop-blur-sm transition-colors hover:bg-royal/5"
             >
               Verify a Certificate
-            </a>
+            </Link>
           </div>
 
           <div className="mt-10 flex flex-wrap gap-x-10 gap-y-6">

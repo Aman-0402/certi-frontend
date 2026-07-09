@@ -1,21 +1,68 @@
-import { Route, Switch } from 'wouter'
+import { useEffect } from 'react'
+import { Route, Router, Switch, useLocation } from 'wouter'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
 import HowItWorks from './pages/HowItWorks'
+import ComingSoon from './pages/ComingSoon'
 
-function App() {
+const COMING_SOON_ROUTES: { path: string; title: string }[] = [
+  { path: '/certifications', title: 'Explore Certifications' },
+  { path: '/certifications/categories', title: 'Certification Categories' },
+  { path: '/certifications/featured', title: 'Featured Certifications' },
+  { path: '/certifications/:slug', title: 'Certification Details' },
+  { path: '/organizations/universities', title: 'Universities & Colleges' },
+  { path: '/organizations/training-institutes', title: 'Training Institutes' },
+  { path: '/organizations/corporate', title: 'Corporate Organizations' },
+  { path: '/organizations/partner', title: 'Become a Certification Partner' },
+  { path: '/resources/secure-assessments', title: 'Secure Assessments' },
+  { path: '/resources/digital-credentials', title: 'Digital Credentials' },
+  { path: '/resources/verification', title: 'Certificate Verification' },
+  { path: '/resources/help', title: 'Help & Support' },
+  { path: '/verify', title: 'Verify Certificate' },
+  { path: '/about', title: 'About Us' },
+  { path: '/sign-in', title: 'Sign In' },
+  { path: '/get-certified', title: 'Get Certified' },
+  { path: '/privacy', title: 'Privacy Policy' },
+  { path: '/terms', title: 'Terms of Service' },
+]
+
+const BASE = import.meta.env.BASE_URL.replace(/\/$/, '')
+
+function AppShell() {
+  const [location] = useLocation()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [location])
+
   return (
     <div className="flex min-h-screen flex-col bg-white">
       <Navbar />
       <main className="flex-1">
         <Switch>
-          <Route path="/how-it-works" component={HowItWorks} />
           <Route path="/" component={Home} />
+          <Route path="/how-it-works" component={HowItWorks} />
+          {COMING_SOON_ROUTES.map((route) => (
+            <Route key={route.path} path={route.path}>
+              <ComingSoon title={route.title} />
+            </Route>
+          ))}
+          <Route>
+            <ComingSoon title="Page Not Found" />
+          </Route>
         </Switch>
       </main>
       <Footer />
     </div>
+  )
+}
+
+function App() {
+  return (
+    <Router base={BASE}>
+      <AppShell />
+    </Router>
   )
 }
 

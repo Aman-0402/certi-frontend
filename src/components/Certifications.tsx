@@ -1,3 +1,5 @@
+import { Link } from 'wouter'
+
 type Cert = {
   title: string
   category: string
@@ -78,12 +80,12 @@ export default function Certifications() {
               verifiable digital credential.
             </p>
           </div>
-          <a href="/certifications" className="flex shrink-0 items-center gap-1 text-sm font-semibold text-royal hover:text-royal-600">
+          <Link href="/certifications" className="flex shrink-0 items-center gap-1 text-sm font-semibold text-royal hover:text-royal-600">
             View All Certifications
             <svg className="h-4 w-4" viewBox="0 0 16 16" fill="none">
               <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-          </a>
+          </Link>
         </div>
 
         <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -110,12 +112,12 @@ export default function Certifications() {
 
               <p className="mt-4 text-xl font-bold text-navy">&#8377;{cert.price.toLocaleString('en-IN')}</p>
 
-              <a
+              <Link
                 href={`/certifications/${cert.title.toLowerCase().replace(/\s+/g, '-')}`}
                 className="mt-4 rounded-lg bg-royal py-2.5 text-center text-sm font-semibold text-white transition-colors hover:bg-royal-600"
               >
                 View Certification
-              </a>
+              </Link>
             </div>
           ))}
         </div>
