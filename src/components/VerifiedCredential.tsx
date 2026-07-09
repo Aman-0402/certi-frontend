@@ -45,12 +45,12 @@ function CredentialIcon({ icon }: { icon: (typeof CREDENTIAL_FEATURES)[number]['
 export default function VerifiedCredential() {
   return (
     <section className="grid grid-cols-1 bg-white lg:grid-cols-2">
-      <div className="order-2 min-h-[320px] bg-slate-50 lg:order-1 lg:min-h-full">
+      <div className="order-2 min-h-[320px] bg-[#dce6fa] lg:order-1 lg:min-h-full">
         <img
           src={credentialImg}
           alt="Digital certificate and global verification"
           loading="lazy"
-          className="h-full w-full object-cover"
+          className="h-full w-full object-contain object-center"
         />
       </div>
 
