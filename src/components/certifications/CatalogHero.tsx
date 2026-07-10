@@ -26,7 +26,7 @@ export default function CatalogHero({
 }) {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-white to-royal/5">
-      <div className="relative mx-auto grid max-w-[1600px] items-center gap-10 px-6 py-16 sm:px-10 lg:grid-cols-[55%_45%] lg:px-16 lg:py-20">
+      <div className="relative mx-auto grid max-w-[1600px] items-start gap-10 px-6 py-16 sm:px-10 lg:grid-cols-[55%_45%] lg:px-16 lg:py-20">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -89,7 +89,7 @@ export default function CatalogHero({
             src={heroImg}
             alt=""
             aria-hidden
-            className="relative aspect-square w-full rounded-3xl object-cover shadow-glow"
+            className="relative aspect-video w-full rounded-3xl object-cover shadow-glow"
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
           />
