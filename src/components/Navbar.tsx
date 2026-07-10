@@ -142,7 +142,7 @@ export default function Navbar() {
         <div className="hidden items-center gap-3 lg:flex">
           <Link
             href="/sign-in"
-            className="rounded-lg border border-royal/40 px-4 py-2 text-sm font-medium text-royal transition-colors hover:bg-royal/5"
+            className="rounded-lg border border-royal/40 bg-white/90 px-4 py-2 text-sm font-medium text-royal shadow-sm backdrop-blur-sm transition-colors hover:bg-royal/5"
           >
             Sign In
           </Link>
