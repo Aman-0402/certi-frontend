@@ -1,48 +1,8 @@
 import { Link } from 'wouter'
 import { motion } from 'framer-motion'
+import heroImg from '../../assets/partner-hero.webp'
 
 const TRUST_POINTS = ['Institutional Collaboration', 'Secure Certification Delivery', 'Verifiable Digital Credentials']
-
-function CollaborationIllustration() {
-  return (
-    <svg viewBox="0 0 320 260" fill="none" className="mx-auto w-full max-w-md" aria-hidden>
-      <g stroke="#5eead4" strokeWidth="1.4" strokeDasharray="4 4" opacity="0.65">
-        <path d="M160 130 L60 60" />
-        <path d="M160 130 L260 60" />
-        <path d="M160 130 L160 220" />
-      </g>
-
-      <circle cx="160" cy="130" r="42" fill="rgba(94,234,212,0.1)" stroke="#5eead4" strokeWidth="1.5" />
-      <rect x="139" y="111" width="42" height="38" rx="3" fill="#0a1128" stroke="#5eead4" strokeWidth="1.5" />
-      <path d="M147 121h26M147 130h26M147 139h16" stroke="#5eead4" strokeWidth="1.3" strokeLinecap="round" />
-      <circle cx="176" cy="141" r="6.5" fill="#0a1128" stroke="#5eead4" strokeWidth="1.3" />
-      <path d="M173 141l1.8 1.8 3.5-3.5" stroke="#5eead4" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-
-      {/* university */}
-      <g>
-        <circle cx="60" cy="60" r="26" fill="rgba(255,255,255,0.06)" stroke="#7c9cff" strokeWidth="1.4" />
-        <path d="M48 68V52l12-6 12 6v16" stroke="#7c9cff" strokeWidth="1.4" strokeLinejoin="round" />
-        <circle cx="46" cy="76" r="5" fill="#0a1128" stroke="#5eead4" strokeWidth="1" />
-      </g>
-
-      {/* training */}
-      <g>
-        <circle cx="260" cy="60" r="26" fill="rgba(255,255,255,0.06)" stroke="#7c9cff" strokeWidth="1.4" />
-        <rect x="248" y="50" width="24" height="14" rx="1.6" stroke="#7c9cff" strokeWidth="1.3" />
-        <path d="M246 70h28" stroke="#7c9cff" strokeWidth="1.3" strokeLinecap="round" />
-        <circle cx="274" cy="76" r="5" fill="#0a1128" stroke="#5eead4" strokeWidth="1" />
-      </g>
-
-      {/* corporate */}
-      <g>
-        <circle cx="160" cy="220" r="26" fill="rgba(255,255,255,0.06)" stroke="#7c9cff" strokeWidth="1.4" />
-        <rect x="147" y="207" width="12" height="26" stroke="#7c9cff" strokeWidth="1.3" />
-        <rect x="161" y="200" width="12" height="33" stroke="#7c9cff" strokeWidth="1.3" />
-        <circle cx="146" cy="200" r="5" fill="#0a1128" stroke="#5eead4" strokeWidth="1" />
-      </g>
-    </svg>
-  )
-}
 
 export default function PartnerHero() {
   return (
@@ -93,8 +53,18 @@ export default function PartnerHero() {
           </div>
         </motion.div>
 
-        <motion.div initial={{ opacity: 0, scale: 0.94 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.1 }}>
-          <CollaborationIllustration />
+        <motion.div
+          initial={{ opacity: 0, scale: 0.94 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="relative mx-auto w-full max-w-md"
+        >
+          <div aria-hidden className="absolute inset-0 rounded-full bg-royal/20 blur-3xl" />
+          <img
+            src={heroImg}
+            alt="Certification opportunities"
+            className="relative w-full rounded-2xl border border-navy/10 shadow-glow"
+          />
         </motion.div>
       </div>
     </section>
