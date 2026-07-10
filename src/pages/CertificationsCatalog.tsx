@@ -1,8 +1,6 @@
 import { useMemo, useState } from 'react'
 import { CERTIFICATIONS } from '../data/certifications'
-import type { CertCategory } from '../data/certifications'
 import CatalogHero from '../components/certifications/CatalogHero'
-import CategoryNav from '../components/certifications/CategoryNav'
 import FilterSidebar from '../components/certifications/FilterSidebar'
 import type { Filters } from '../components/certifications/FilterSidebar'
 import CertCard from '../components/certifications/CertCard'
@@ -46,8 +44,6 @@ export default function CertificationsCatalog() {
   const [sort, setSort] = useState<SortOption>('popular')
   const [view, setView] = useState<'grid' | 'list'>('grid')
 
-  const setCategory = (category: CertCategory | 'All') => setFilters((f) => ({ ...f, category }))
-
   const filtered = useMemo(() => {
     const query = search.trim().toLowerCase()
 
@@ -86,7 +82,6 @@ export default function CertificationsCatalog() {
   return (
     <>
       <CatalogHero />
-      <CategoryNav active={filters.category} onSelect={setCategory} />
 
       <section className="bg-slate-50">
         <div className="mx-auto max-w-[1600px] px-6 py-16 sm:px-10 lg:px-16">
