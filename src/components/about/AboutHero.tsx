@@ -1,51 +1,6 @@
 import { Link } from 'wouter'
 import { motion } from 'framer-motion'
-
-function EcosystemIllustration() {
-  return (
-    <svg viewBox="0 0 320 280" fill="none" className="mx-auto w-full max-w-md" aria-hidden>
-      <g stroke="#5eead4" strokeWidth="1.4" strokeDasharray="4 4" opacity="0.6">
-        <path d="M160 140 L55 70" />
-        <path d="M160 140 L265 70" />
-        <path d="M160 140 L45 210" />
-        <path d="M160 140 L275 210" />
-      </g>
-
-      <circle cx="160" cy="140" r="42" fill="rgba(94,234,212,0.1)" stroke="#5eead4" strokeWidth="1.5" />
-      <rect x="139" y="121" width="42" height="38" rx="3" fill="#0a1128" stroke="#5eead4" strokeWidth="1.5" />
-      <path d="M147 131h26M147 140h26M147 149h16" stroke="#5eead4" strokeWidth="1.3" strokeLinecap="round" />
-      <circle cx="176" cy="151" r="6.5" fill="#0a1128" stroke="#5eead4" strokeWidth="1.3" />
-      <path d="M173 151l1.8 1.8 3.5-3.5" stroke="#5eead4" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-
-      {/* candidate profile */}
-      <g>
-        <circle cx="55" cy="70" r="22" fill="rgba(255,255,255,0.06)" stroke="#7c9cff" strokeWidth="1.4" />
-        <circle cx="55" cy="64" r="6" stroke="#7c9cff" strokeWidth="1.3" />
-        <path d="M45 80c1.8-5 5.5-7.5 10-7.5s8.2 2.5 10 7.5" stroke="#7c9cff" strokeWidth="1.3" strokeLinecap="round" />
-      </g>
-
-      {/* university */}
-      <g>
-        <circle cx="265" cy="70" r="22" fill="rgba(255,255,255,0.06)" stroke="#7c9cff" strokeWidth="1.4" />
-        <path d="M254 78V64l11-5 11 5v14" stroke="#7c9cff" strokeWidth="1.3" strokeLinejoin="round" />
-      </g>
-
-      {/* training */}
-      <g>
-        <circle cx="45" cy="210" r="22" fill="rgba(255,255,255,0.06)" stroke="#7c9cff" strokeWidth="1.4" />
-        <rect x="33" y="200" width="24" height="14" rx="1.6" stroke="#7c9cff" strokeWidth="1.2" />
-        <path d="M31 220h28" stroke="#7c9cff" strokeWidth="1.2" strokeLinecap="round" />
-      </g>
-
-      {/* corporate */}
-      <g>
-        <circle cx="275" cy="210" r="22" fill="rgba(255,255,255,0.06)" stroke="#7c9cff" strokeWidth="1.4" />
-        <rect x="264" y="200" width="9" height="20" stroke="#7c9cff" strokeWidth="1.1" />
-        <rect x="275" y="194" width="9" height="26" stroke="#7c9cff" strokeWidth="1.1" />
-      </g>
-    </svg>
-  )
-}
+import heroImg from '../../assets/about-hero.webp'
 
 export default function AboutHero() {
   return (
@@ -89,8 +44,14 @@ export default function AboutHero() {
           </div>
         </motion.div>
 
-        <motion.div initial={{ opacity: 0, scale: 0.94 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.1 }}>
-          <EcosystemIllustration />
+        <motion.div
+          initial={{ opacity: 0, scale: 0.94 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="relative mx-auto w-full"
+        >
+          <div aria-hidden className="absolute inset-0 rounded-full bg-royal/20 blur-3xl" />
+          <img src={heroImg} alt="CertiByt certification ecosystem" className="relative w-full rounded-3xl" />
         </motion.div>
       </div>
     </section>
