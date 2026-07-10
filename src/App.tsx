@@ -5,6 +5,7 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 import HowItWorks from './pages/HowItWorks'
 import CertificationsCatalog from './pages/CertificationsCatalog'
+import Universities from './pages/Universities'
 import ComingSoon from './pages/ComingSoon'
 
 const COMING_SOON_ROUTES: { path: string; title: string }[] = [
@@ -12,7 +13,6 @@ const COMING_SOON_ROUTES: { path: string; title: string }[] = [
   { path: '/certifications/featured', title: 'Featured Certifications' },
   { path: '/certifications/:slug', title: 'Certification Details' },
   { path: '/organizations', title: 'For Organizations' },
-  { path: '/organizations/universities', title: 'Universities & Colleges' },
   { path: '/contact', title: 'Contact Our Team' },
   { path: '/organizations/training-institutes', title: 'Training Institutes' },
   { path: '/organizations/corporate', title: 'Corporate Organizations' },
@@ -46,6 +46,7 @@ function AppShell() {
           <Route path="/" component={Home} />
           <Route path="/how-it-works" component={HowItWorks} />
           <Route path="/certifications" component={CertificationsCatalog} />
+          <Route path="/organizations/universities" component={Universities} />
           {COMING_SOON_ROUTES.map((route) => (
             <Route key={route.path} path={route.path}>
               <ComingSoon title={route.title} />
