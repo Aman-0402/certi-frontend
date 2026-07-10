@@ -4,7 +4,7 @@ import heroImg from '../../assets/world.webp'
 export default function CatalogHero() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-white to-royal/5">
-      <div className="relative mx-auto grid max-w-[1600px] items-start gap-10 px-6 py-16 sm:px-10 lg:grid-cols-[55%_45%] lg:px-16 lg:py-20">
+      <div className="relative mx-auto grid max-w-[1600px] items-start gap-10 px-6 py-16 sm:px-10 lg:grid-cols-[40%_60%] lg:px-16 lg:py-20">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -14,14 +14,14 @@ export default function CatalogHero() {
             GLOBAL CERTIFICATION CATALOG
           </span>
 
-          <h1 className="mt-6 text-4xl font-bold leading-tight text-navy sm:text-5xl">
+          <h1 className="mt-6 text-4xl font-bold leading-tight text-navy sm:text-5xl lg:text-6xl">
             Explore{' '}
             <span className="bg-gradient-to-r from-royal to-royal-700 bg-clip-text text-transparent">
               Professional Certifications
             </span>
           </h1>
 
-          <p className="mt-5 max-w-xl text-lg text-navy/60">
+          <p className="mt-5 max-w-xl text-lg text-navy/60 lg:text-xl">
             Discover professional certification programs designed to help you validate your
             skills, demonstrate your expertise, and earn a digitally verifiable credential.
           </p>
