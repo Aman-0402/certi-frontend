@@ -6,7 +6,7 @@ export default function OurVision() {
   return (
     <section className="relative overflow-hidden bg-navy">
       <img src={bgImg} alt="" aria-hidden className="absolute inset-0 h-full w-full object-cover" />
-      <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/75 to-navy/20 sm:via-navy/60 sm:to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/55 to-transparent sm:via-navy/35" />
 
       <div className="relative mx-auto max-w-[1600px] px-6 py-20 sm:px-10 lg:px-16 lg:py-28">
         <div className="max-w-lg">
