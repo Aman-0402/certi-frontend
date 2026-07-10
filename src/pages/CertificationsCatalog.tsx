@@ -85,7 +85,7 @@ export default function CertificationsCatalog() {
 
   return (
     <>
-      <CatalogHero search={search} onSearchChange={setSearch} />
+      <CatalogHero />
       <CategoryNav active={filters.category} onSelect={setCategory} />
 
       <section className="bg-slate-50">
@@ -98,6 +98,20 @@ export default function CertificationsCatalog() {
                 <div>
                   <h2 className="text-2xl font-bold text-navy sm:text-3xl">Professional Certifications</h2>
                   <p className="mt-1 text-sm text-navy/55">Showing {filtered.length} certifications</p>
+                </div>
+
+                <div className="relative w-full max-w-xs sm:w-64">
+                  <svg className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-navy/40" viewBox="0 0 24 24" fill="none">
+                    <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="1.8" />
+                    <path d="m20 20-3.5-3.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                  </svg>
+                  <input
+                    type="text"
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                    placeholder="Search certifications..."
+                    className="w-full rounded-lg border border-navy/10 bg-white py-2.5 pl-10 pr-3 text-sm text-navy shadow-sm outline-none transition-shadow focus:border-royal/40 focus:shadow-md"
+                  />
                 </div>
 
                 <div className="flex items-center gap-3">
