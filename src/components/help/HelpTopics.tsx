@@ -80,9 +80,9 @@ export default function HelpTopics({ search }: { search: string }) {
               return (
                 <div
                   key={topic.id}
-                  className="flex flex-col rounded-2xl border border-navy/10 bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
+                  className="group flex flex-col rounded-2xl border border-navy/10 bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
                 >
-                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-royal/10">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-royal/10 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
                     <TopicIcon icon={topic.icon} />
                   </div>
                   <h3 className="mt-4 text-base font-bold text-navy">{topic.title}</h3>

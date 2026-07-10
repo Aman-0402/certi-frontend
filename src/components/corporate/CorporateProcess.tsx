@@ -80,7 +80,7 @@ export default function CorporateProcess() {
           {FLOW_NODES.map((node, i) => (
             <div key={node.label} className="flex items-center gap-3">
               <div className="flex flex-col items-center gap-2">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-sm">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-sm transition-transform duration-300 hover:scale-110 hover:rotate-6">
                   <FlowIcon icon={node.icon} />
                 </div>
                 <span className="text-xs font-semibold text-navy/70">{node.label}</span>

@@ -64,7 +64,7 @@ export default function SecureAssessment() {
           <div className="mt-12 flex flex-col gap-6">
             {PROCTORING_FEATURES.map((f) => (
               <div key={f.title} className="flex items-start gap-4">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm transition-transform duration-300 hover:scale-110 hover:rotate-6">
                   <ProctoringIcon icon={f.icon} />
                 </div>
                 <div>

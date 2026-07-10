@@ -75,9 +75,9 @@ export default function WhatWereBuilding() {
               key={a.title}
               whileHover={{ y: -4 }}
               transition={{ duration: 0.2 }}
-              className="flex flex-col rounded-[24px] border border-navy/10 bg-white p-8 shadow-sm"
+              className="group flex flex-col rounded-[24px] border border-navy/10 bg-white p-8 shadow-sm"
             >
-              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-royal/10">
+              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-royal/10 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
                 <AudienceIcon icon={a.icon} />
               </div>
               <h3 className="mt-6 text-lg font-bold text-navy">{a.title}</h3>

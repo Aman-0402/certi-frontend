@@ -18,10 +18,10 @@ export default function CertCard({ cert }: { cert: Certification }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.4 }}
-      className="flex flex-col rounded-[20px] border border-royal/10 bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
+      className="group flex flex-col rounded-[20px] border border-royal/10 bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
     >
       <div
-        className="flex h-[76px] w-[76px] items-center justify-center rounded-2xl"
+        className="flex h-[76px] w-[76px] items-center justify-center rounded-2xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
         style={{ backgroundColor: `${cert.color}1a` }}
       >
         <CertIcon icon={cert.icon} className="h-9 w-9" />

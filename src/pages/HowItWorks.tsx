@@ -157,7 +157,7 @@ export default function HowItWorks() {
             {FEATURES.map((f, i) => (
               <div key={f.title} className="flex flex-1 basis-56 items-start gap-3 px-4">
                 {i > 0 && <span className="mr-1 hidden h-10 w-px self-center bg-navy/10 sm:block" aria-hidden />}
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-royal/10">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-royal/10 transition-transform duration-300 hover:scale-110 hover:rotate-6">
                   <FeatureIcon icon={f.icon} />
                 </div>
                 <div>

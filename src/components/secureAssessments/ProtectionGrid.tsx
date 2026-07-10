@@ -82,9 +82,9 @@ export default function ProtectionGrid() {
               key={item.title}
               whileHover={{ y: -4 }}
               transition={{ duration: 0.2 }}
-              className="flex flex-col items-center rounded-[20px] border border-navy/10 bg-white p-6 text-center shadow-sm hover:shadow-md"
+              className="group flex flex-col items-center rounded-[20px] border border-navy/10 bg-white p-6 text-center shadow-sm hover:shadow-md"
             >
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-royal/10">
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-royal/10 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
                 <ProtectionIcon icon={item.icon} />
               </div>
               <p className="mt-4 text-base font-bold text-navy">{item.title}</p>

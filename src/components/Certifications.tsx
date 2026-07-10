@@ -92,10 +92,10 @@ export default function Certifications() {
           {CERTS.slice(0, 4).map((cert) => (
             <div
               key={cert.title}
-              className="flex flex-col rounded-2xl border border-navy/10 bg-white p-6 shadow-sm transition-shadow hover:shadow-glow"
+              className="group flex flex-col rounded-2xl border border-navy/10 bg-white p-6 shadow-sm transition-shadow hover:shadow-glow"
             >
               <div
-                className="flex h-14 w-14 items-center justify-center rounded-xl"
+                className="flex h-14 w-14 items-center justify-center rounded-xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
                 style={{ backgroundColor: `${cert.color}1a` }}
               >
                 <CertIcon icon={cert.icon} color={cert.color} />

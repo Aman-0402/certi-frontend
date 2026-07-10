@@ -79,9 +79,9 @@ export default function WorkforceInfrastructure() {
               key={item.title}
               whileHover={{ y: -4 }}
               transition={{ duration: 0.2 }}
-              className="flex flex-col items-center rounded-[20px] border border-navy/10 bg-white p-6 text-center shadow-sm transition-shadow hover:shadow-[0_0_24px_0_rgba(34,85,255,0.12)]"
+              className="group flex flex-col items-center rounded-[20px] border border-navy/10 bg-white p-6 text-center shadow-sm transition-shadow hover:shadow-[0_0_24px_0_rgba(34,85,255,0.12)]"
             >
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-royal/10">
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-royal/10 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
                 <BenefitIcon icon={item.icon} />
               </div>
               <p className="mt-4 text-base font-bold text-navy">{item.title}</p>

@@ -69,7 +69,9 @@ export default function TrustedBy() {
             <div key={item.label} className="flex items-center">
               {i > 0 && <span className="mr-4 hidden h-8 w-px bg-navy/15 sm:block lg:mr-6" aria-hidden />}
               <div className="flex items-center gap-3">
-                <TrustIcon icon={item.icon} />
+                <span className="inline-flex transition-transform duration-300 hover:scale-110 hover:rotate-6">
+                  <TrustIcon icon={item.icon} />
+                </span>
                 <span className="text-base font-semibold text-navy/80 lg:text-lg">{item.label}</span>
               </div>
             </div>
