@@ -1,15 +1,13 @@
+import { useReducedMotion } from 'framer-motion'
 import chooseImg from '../assets/icons/Choose a Certification_converted.webp'
 import purchaseImg from '../assets/icons/Purchase Voucher & Access Exam_converted.webp'
 import assessImg from '../assets/icons/Take Secure Assessment_converted.webp'
 import evaluateImg from '../assets/icons/Get Evaluated & Results_converted.webp'
 import earnImg from '../assets/icons/Earn Your Digital Certificate_converted.webp'
-
-type Step = {
-  number: string
-  title: string
-  desc: string
-  image: string
-}
+import JourneyHero from '../components/howItWorks/JourneyHero'
+import JourneyScroll from '../components/howItWorks/JourneyScroll'
+import JourneyVertical from '../components/howItWorks/JourneyVertical'
+import type { Step } from '../components/howItWorks/types'
 
 const STEPS: Step[] = [
   {
@@ -89,71 +87,28 @@ function FeatureIcon({ icon }: { icon: Feature['icon'] }) {
 }
 
 export default function HowItWorks() {
+  const reducedMotion = useReducedMotion()
+
   return (
     <>
-      <section className="relative overflow-hidden bg-slate-50">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-[0.08]"
-          style={{
-            backgroundImage: 'radial-gradient(currentColor 1px, transparent 1px)',
-            backgroundSize: '18px 18px',
-            color: '#0a1128',
-          }}
-        />
+      <JourneyHero />
 
-        <div className="relative mx-auto max-w-[1600px] px-6 pb-20 pt-32 text-center sm:px-10 lg:px-16">
-          <h1 className="text-5xl font-extrabold text-navy sm:text-6xl">
-            How It <span className="text-royal">Works</span>
-          </h1>
-          <p className="mx-auto mt-5 max-w-xl text-lg text-navy/60">
-            CertiByt makes professional certification simple, secure, and globally verifiable.
-          </p>
-          <div className="mx-auto mt-5 h-1 w-16 rounded-full bg-royal" />
-        </div>
-      </section>
-
-      <section className="bg-slate-50 pb-20">
-        <div className="mx-auto max-w-[1600px] px-6 sm:px-10 lg:px-16">
-          <div className="relative grid grid-cols-1 items-stretch gap-x-6 gap-y-16 sm:grid-cols-2 lg:grid-cols-5">
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-x-16 top-16 hidden h-px bg-gradient-to-r from-transparent via-royal/25 to-transparent lg:block"
-            />
-
-            {STEPS.map((step, i) => (
-              <div key={step.number} className="group relative flex h-full flex-col items-center text-center">
-                {i < STEPS.length - 1 && (
-                  <svg
-                    className="absolute -right-2 top-16 z-10 hidden h-4 w-8 -translate-y-1/2 text-royal/60 lg:block"
-                    viewBox="0 0 32 16"
-                    fill="none"
-                    aria-hidden
-                  >
-                    <path d="M0 8h26M20 2l6 6-6 6" stroke="currentColor" strokeWidth="1.8" strokeDasharray="4 3" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                )}
-
-                <div className="relative shrink-0 transition-transform duration-300 group-hover:-translate-y-1">
-                  <span className="absolute -top-2 left-1/2 z-10 flex h-9 w-9 -translate-x-1/2 items-center justify-center rounded-full border-[3px] border-slate-50 bg-gradient-to-br from-royal to-royal-700 text-xs font-bold text-white shadow-glow">
-                    {step.number}
-                  </span>
-                  <div className="relative flex h-36 w-36 items-center justify-center overflow-hidden rounded-full border border-royal/15 bg-white p-5 shadow-sm ring-1 ring-navy/5 transition-shadow duration-300 group-hover:shadow-md">
-                    <img src={step.image} alt="" className="h-full w-full object-contain" />
-                  </div>
-                  <div className="mx-auto mt-2 h-3 w-28 rounded-full bg-navy/10 blur-md" aria-hidden />
-                </div>
-
-                <div className="mt-8 flex w-full flex-1 flex-col rounded-2xl border border-navy/10 bg-white p-6 shadow-sm transition-shadow duration-300 group-hover:shadow-md">
-                  <h3 className="text-base font-bold leading-snug text-navy">{step.title}</h3>
-                  <div className="mx-auto mt-2 h-0.5 w-10 rounded-full bg-royal/60" />
-                  <p className="mt-3 text-sm leading-relaxed text-navy/60">{step.desc}</p>
-                </div>
-              </div>
-            ))}
+      {reducedMotion ? (
+        <JourneyVertical steps={STEPS} />
+      ) : (
+        <>
+          <div className="hidden lg:block">
+            <JourneyScroll steps={STEPS} />
           </div>
+          <div className="lg:hidden">
+            <JourneyVertical steps={STEPS} />
+          </div>
+        </>
+      )}
 
-          <div className="mt-16 flex flex-wrap items-stretch justify-center gap-y-8 rounded-2xl border border-navy/10 bg-white p-8">
+      <section className="bg-[#F8FAFF] pb-20">
+        <div className="mx-auto max-w-[1600px] px-6 sm:px-10 lg:px-16">
+          <div className="flex flex-wrap items-stretch justify-center gap-y-8 rounded-2xl border border-navy/10 bg-white p-8">
             {FEATURES.map((f, i) => (
               <div key={f.title} className="flex flex-1 basis-56 items-start gap-3 px-4">
                 {i > 0 && <span className="mr-1 hidden h-10 w-px self-center bg-navy/10 sm:block" aria-hidden />}
