@@ -57,14 +57,9 @@ export default function PartnerHero() {
           initial={{ opacity: 0, scale: 0.94 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="relative mx-auto w-full max-w-md"
+          className="w-full"
         >
-          <div aria-hidden className="absolute inset-0 rounded-full bg-royal/20 blur-3xl" />
-          <img
-            src={heroImg}
-            alt="Certification opportunities"
-            className="relative w-full rounded-2xl border border-navy/10 shadow-glow"
-          />
+          <img src={heroImg} alt="Certification opportunities" className="w-full" />
         </motion.div>
       </div>
     </section>
