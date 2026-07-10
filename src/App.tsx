@@ -10,6 +10,7 @@ import TrainingInstitutes from './pages/TrainingInstitutes'
 import CorporateOrganizations from './pages/CorporateOrganizations'
 import PartnerEnquiry from './pages/PartnerEnquiry'
 import VerifyCertificate from './pages/VerifyCertificate'
+import About from './pages/About'
 import ComingSoon from './pages/ComingSoon'
 
 const COMING_SOON_ROUTES: { path: string; title: string }[] = [
@@ -22,7 +23,6 @@ const COMING_SOON_ROUTES: { path: string; title: string }[] = [
   { path: '/resources/digital-credentials', title: 'Digital Credentials' },
   { path: '/resources/verification', title: 'Certificate Verification' },
   { path: '/resources/help', title: 'Help & Support' },
-  { path: '/about', title: 'About Us' },
   { path: '/sign-in', title: 'Sign In' },
   { path: '/get-certified', title: 'Get Certified' },
   { path: '/privacy', title: 'Privacy Policy' },
@@ -51,6 +51,7 @@ function AppShell() {
           <Route path="/organizations/corporate" component={CorporateOrganizations} />
           <Route path="/organizations/partner" component={PartnerEnquiry} />
           <Route path="/verify" component={VerifyCertificate} />
+          <Route path="/about" component={About} />
           {COMING_SOON_ROUTES.map((route) => (
             <Route key={route.path} path={route.path}>
               <ComingSoon title={route.title} />
