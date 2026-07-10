@@ -58,8 +58,7 @@ export default function TrainingHero() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="relative mx-auto w-full"
         >
-          <div aria-hidden className="absolute inset-0 rounded-full bg-royal/20 blur-3xl" />
-          <img src={heroImg} alt="" aria-hidden className="relative aspect-[4/3] w-full rounded-3xl object-cover shadow-glow" />
+          <img src={heroImg} alt="" aria-hidden className="relative aspect-[4/3] w-full rounded-3xl object-cover" />
         </motion.div>
       </div>
     </section>
