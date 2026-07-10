@@ -21,7 +21,6 @@ const COMING_SOON_ROUTES: { path: string; title: string }[] = [
   { path: '/contact', title: 'Contact Our Team' },
   { path: '/resources/secure-assessments', title: 'Secure Assessments' },
   { path: '/resources/digital-credentials', title: 'Digital Credentials' },
-  { path: '/resources/verification', title: 'Certificate Verification' },
   { path: '/resources/help', title: 'Help & Support' },
   { path: '/sign-in', title: 'Sign In' },
   { path: '/get-certified', title: 'Get Certified' },

@@ -24,7 +24,6 @@ const COLUMNS = [
     links: [
       { label: 'Secure Assessments', href: '/resources/secure-assessments' },
       { label: 'Digital Credentials', href: '/resources/digital-credentials' },
-      { label: 'Certificate Verification', href: '/resources/verification' },
       { label: 'Help & Support', href: '/resources/help' },
     ],
   },
