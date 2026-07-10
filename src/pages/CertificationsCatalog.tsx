@@ -85,7 +85,7 @@ export default function CertificationsCatalog() {
 
   return (
     <>
-      <CatalogHero search={search} onSearchChange={setSearch} category={filters.category} onCategoryChange={setCategory} />
+      <CatalogHero search={search} onSearchChange={setSearch} />
       <CategoryNav active={filters.category} onSelect={setCategory} />
 
       <section className="bg-slate-50">

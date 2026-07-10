@@ -1,28 +1,12 @@
 import { motion } from 'framer-motion'
 import heroImg from '../../assets/world.webp'
-import type { CertCategory } from '../../data/certifications'
-
-const CATEGORY_OPTIONS: CertCategory[] = [
-  'Programming',
-  'Data Science',
-  'Artificial Intelligence',
-  'Web Development',
-  'Cloud Computing',
-  'Cybersecurity',
-  'DevOps',
-  'Business & Analytics',
-]
 
 export default function CatalogHero({
   search,
   onSearchChange,
-  category,
-  onCategoryChange,
 }: {
   search: string
   onSearchChange: (value: string) => void
-  category: CertCategory | 'All'
-  onCategoryChange: (value: CertCategory | 'All') => void
 }) {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-white to-royal/5">
@@ -48,33 +32,18 @@ export default function CatalogHero({
             skills, demonstrate your expertise, and earn a digitally verifiable credential.
           </p>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <div className="relative flex-1">
-              <svg className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-navy/40" viewBox="0 0 24 24" fill="none">
-                <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="1.8" />
-                <path d="m20 20-3.5-3.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-              </svg>
-              <input
-                type="text"
-                value={search}
-                onChange={(e) => onSearchChange(e.target.value)}
-                placeholder="Search certifications, skills, or domains..."
-                className="w-full rounded-xl border border-navy/10 bg-white py-4 pl-12 pr-4 text-sm text-navy shadow-sm outline-none transition-shadow focus:border-royal/40 focus:shadow-md"
-              />
-            </div>
-
-            <select
-              value={category}
-              onChange={(e) => onCategoryChange(e.target.value as CertCategory | 'All')}
-              className="rounded-xl border border-navy/10 bg-white px-4 py-4 text-sm font-medium text-navy shadow-sm outline-none transition-shadow focus:border-royal/40 focus:shadow-md sm:w-56"
-            >
-              <option value="All">All Categories</option>
-              {CATEGORY_OPTIONS.map((c) => (
-                <option key={c} value={c}>
-                  {c}
-                </option>
-              ))}
-            </select>
+          <div className="relative mt-8 max-w-xl">
+            <svg className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-navy/40" viewBox="0 0 24 24" fill="none">
+              <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="1.8" />
+              <path d="m20 20-3.5-3.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+            </svg>
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => onSearchChange(e.target.value)}
+              placeholder="Search certifications, skills, or domains..."
+              className="w-full rounded-xl border border-navy/10 bg-white py-4 pl-12 pr-4 text-sm text-navy shadow-sm outline-none transition-shadow focus:border-royal/40 focus:shadow-md"
+            />
           </div>
         </motion.div>
 
