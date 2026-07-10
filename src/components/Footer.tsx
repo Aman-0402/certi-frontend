@@ -13,6 +13,7 @@ const COLUMNS = [
   {
     title: 'For Organizations',
     links: [
+      { label: 'Overview', href: '/organizations' },
       { label: 'Universities & Colleges', href: '/organizations/universities' },
       { label: 'Training Institutes', href: '/organizations/training-institutes' },
       { label: 'Corporate Organizations', href: '/organizations/corporate' },
