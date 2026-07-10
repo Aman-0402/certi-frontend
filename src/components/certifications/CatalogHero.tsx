@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import heroImg from '../../assets/hero-globe.webp'
+import heroImg from '../../assets/world.webp'
 import type { CertCategory } from '../../data/certifications'
 
 const CATEGORY_OPTIONS: CertCategory[] = [
@@ -26,7 +26,7 @@ export default function CatalogHero({
 }) {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-white to-royal/5">
-      <div className="relative mx-auto grid max-w-[1600px] items-center gap-10 px-6 py-20 sm:px-10 lg:grid-cols-[55%_45%] lg:px-16 lg:py-28">
+      <div className="relative mx-auto grid max-w-[1600px] items-center gap-10 px-6 py-16 sm:px-10 lg:grid-cols-[55%_45%] lg:px-16 lg:py-20">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -82,14 +82,14 @@ export default function CatalogHero({
           initial={{ opacity: 0, scale: 0.94 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="relative mx-auto w-full max-w-md"
+          className="relative mx-auto w-full"
         >
-          <div aria-hidden className="absolute inset-0 rounded-full bg-royal/20 blur-3xl" />
+          <div aria-hidden className="absolute inset-0 rounded-full bg-royal/25 blur-3xl" />
           <motion.img
             src={heroImg}
             alt=""
             aria-hidden
-            className="relative w-full"
+            className="relative aspect-square w-full rounded-3xl object-cover shadow-glow"
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
           />
