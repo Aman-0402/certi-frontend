@@ -12,7 +12,6 @@ const DROPDOWNS: Record<DropdownKey, DropdownItem[]> = {
     { label: 'Featured Certifications', href: '/certifications/featured' },
   ],
   organizations: [
-    { label: 'Overview', href: '/organizations' },
     { label: 'Universities & Colleges', href: '/organizations/universities' },
     { label: 'Training Institutes', href: '/organizations/training-institutes' },
     { label: 'Corporate Organizations', href: '/organizations/corporate' },
