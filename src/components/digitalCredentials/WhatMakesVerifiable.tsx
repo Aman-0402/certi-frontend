@@ -1,0 +1,92 @@
+import { motion } from 'framer-motion'
+
+const ITEMS = [
+  {
+    title: 'Unique Certificate ID',
+    desc: 'Every issued certificate receives a unique identification value used to identify the credential.',
+    icon: 'id',
+  },
+  {
+    title: 'Public Verification',
+    desc: "Certificate details can be checked through CertiByt's public verification system.",
+    icon: 'globe',
+  },
+  {
+    title: 'Credential Details',
+    desc: 'View important certification information including the certificate holder, certification name, and issue details.',
+    icon: 'document',
+  },
+  {
+    title: 'Digital Certificate Access',
+    desc: "Access the available digital certificate through CertiByt's certificate experience.",
+    icon: 'access',
+  },
+] as const
+
+function CredentialIcon({ icon }: { icon: (typeof ITEMS)[number]['icon'] }) {
+  const common = { className: 'h-7 w-7 text-royal', viewBox: '0 0 24 24', fill: 'none' } as const
+  if (icon === 'id') {
+    return (
+      <svg {...common}>
+        <rect x="3.5" y="5" width="17" height="14" rx="2" stroke="currentColor" strokeWidth="1.6" />
+        <circle cx="9" cy="10.5" r="1.8" stroke="currentColor" strokeWidth="1.4" />
+        <path d="M6.5 15.5c.6-1.4 1.6-2 2.5-2s1.9.6 2.5 2M14 9.5h4M14 12.5h4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+      </svg>
+    )
+  }
+  if (icon === 'globe') {
+    return (
+      <svg {...common}>
+        <circle cx="12" cy="12" r="8.5" stroke="currentColor" strokeWidth="1.6" />
+        <path d="M3.5 12h17M12 3.5c2.5 2.3 4 5.3 4 8.5s-1.5 6.2-4 8.5c-2.5-2.3-4-5.3-4-8.5s1.5-6.2 4-8.5z" stroke="currentColor" strokeWidth="1.6" />
+        <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    )
+  }
+  if (icon === 'document') {
+    return (
+      <svg {...common}>
+        <rect x="5" y="3.5" width="14" height="17" rx="1.5" stroke="currentColor" strokeWidth="1.6" />
+        <path d="M8 8h8M8 11.5h8M8 15h5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
+    )
+  }
+  return (
+    <svg {...common}>
+      <rect x="5" y="3.5" width="14" height="14" rx="1.5" stroke="currentColor" strokeWidth="1.6" />
+      <path d="M9 8h6M9 11h6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+      <path d="M12 22v-6M9 19l3 3 3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
+export default function WhatMakesVerifiable() {
+  return (
+    <section className="bg-white">
+      <div className="mx-auto max-w-[1600px] px-6 py-20 text-center sm:px-10 lg:px-16">
+        <h2 className="mx-auto max-w-2xl text-2xl font-bold text-navy sm:text-3xl">More Than a Digital Certificate</h2>
+        <p className="mx-auto mt-4 max-w-2xl text-navy/60">
+          CertiByt credentials are designed to provide clear certification information and a
+          simple way to verify certificate authenticity.
+        </p>
+
+        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {ITEMS.map((item) => (
+            <motion.div
+              key={item.title}
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.2 }}
+              className="flex flex-col items-center rounded-[20px] border border-navy/10 bg-white p-6 text-center shadow-sm"
+            >
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-royal/10">
+                <CredentialIcon icon={item.icon} />
+              </div>
+              <p className="mt-4 text-base font-bold text-navy">{item.title}</p>
+              <p className="mt-2 text-sm text-navy/55">{item.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
