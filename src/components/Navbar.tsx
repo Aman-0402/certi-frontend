@@ -3,14 +3,9 @@ import { Link, useLocation } from 'wouter'
 import logo from '../assets/light_themeee.png'
 
 type DropdownItem = { label: string; href: string }
-type DropdownKey = 'certifications' | 'organizations' | 'resources'
+type DropdownKey = 'organizations' | 'resources'
 
 const DROPDOWNS: Record<DropdownKey, DropdownItem[]> = {
-  certifications: [
-    { label: 'Explore Certifications', href: '/certifications' },
-    { label: 'Certification Categories', href: '/certifications/categories' },
-    { label: 'Featured Certifications', href: '/certifications/featured' },
-  ],
   organizations: [
     { label: 'Universities & Colleges', href: '/organizations/universities' },
     { label: 'Training Institutes', href: '/organizations/training-institutes' },
@@ -26,7 +21,6 @@ const DROPDOWNS: Record<DropdownKey, DropdownItem[]> = {
 }
 
 const DROPDOWN_LABELS: Record<DropdownKey, string> = {
-  certifications: 'Certifications',
   organizations: 'For Organizations',
   resources: 'Resources',
 }
@@ -130,7 +124,9 @@ export default function Navbar() {
         </Link>
 
         <div className="hidden items-center gap-8 lg:flex">
-          <NavDropdown id="certifications" open={openDropdown === 'certifications'} onToggle={toggleDropdown} onClose={closeDropdown} />
+          <Link href="/certifications" className={navLinkClass('/certifications')}>
+            Certifications
+          </Link>
           <NavDropdown id="organizations" open={openDropdown === 'organizations'} onToggle={toggleDropdown} onClose={closeDropdown} />
           <Link href="/how-it-works" className={navLinkClass('/how-it-works')}>
             How It Works
@@ -178,6 +174,7 @@ export default function Navbar() {
 
       {mobileOpen && (
         <div className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-navy/10 bg-white/95 px-4 pb-6 pt-2 backdrop-blur-xl lg:hidden">
+          <Link href="/certifications" className="block px-1 py-3 text-sm font-medium text-navy/80">Certifications</Link>
           {(Object.keys(DROPDOWNS) as DropdownKey[]).map((key) => (
             <div key={key} className="border-b border-navy/5 py-2">
               <p className="px-1 py-2 text-sm font-semibold text-navy">{DROPDOWN_LABELS[key]}</p>
