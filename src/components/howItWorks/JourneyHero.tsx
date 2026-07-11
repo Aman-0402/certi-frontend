@@ -15,7 +15,7 @@ export default function JourneyHero() {
           color: '#0a1128',
         }}
       />
-      <div className="relative mx-auto max-w-[1600px] px-6 pb-10 pt-28 text-center sm:px-10 lg:px-16">
+      <div className="relative mx-auto max-w-[1600px] px-6 pb-0 pt-24 text-center sm:px-10 lg:px-16">
         <h1 className="flex flex-wrap items-center justify-center gap-x-4 overflow-hidden text-5xl font-extrabold sm:text-6xl">
           <motion.span
             initial={{ y: 70, opacity: 0, filter: 'blur(10px)' }}
