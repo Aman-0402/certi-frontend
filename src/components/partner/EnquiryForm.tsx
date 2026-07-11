@@ -15,12 +15,6 @@ const CERT_INTERESTS = [
   'Multiple Certification Domains',
 ]
 
-const LEFT_AUDIENCES = [
-  { title: 'For Universities & Colleges', desc: 'Student certification opportunities.' },
-  { title: 'For Training Institutes', desc: 'Certification access for trained learners.' },
-  { title: 'For Corporate Organizations', desc: 'Professional skill validation for teams.' },
-]
-
 type FormState = {
   orgName: string
   orgType: string
@@ -73,32 +67,8 @@ export default function EnquiryForm() {
 
   return (
     <section id="enquiry-form" className="bg-white">
-      <div className="mx-auto grid max-w-[1600px] grid-cols-1 gap-12 px-6 py-20 sm:px-10 lg:grid-cols-2 lg:px-16">
-        <div>
-          <span className="inline-flex items-center rounded-full bg-royal/10 px-4 py-1.5 text-xs font-bold tracking-wide text-royal">
-            LET'S COLLABORATE
-          </span>
-
-          <h2 className="mt-6 text-3xl font-bold leading-tight text-navy sm:text-4xl">
-            Start Your Certification Partnership Journey
-          </h2>
-          <p className="mt-5 max-w-lg text-lg text-navy/60">
-            Tell us about your organization and how you would like to provide certification
-            opportunities to your candidates. Our partnership team will review your enquiry and
-            connect with you.
-          </p>
-
-          <div className="mt-10 flex flex-col gap-6">
-            {LEFT_AUDIENCES.map((a) => (
-              <div key={a.title} className="border-l-2 border-royal/30 pl-4">
-                <p className="text-sm font-semibold text-navy">{a.title}</p>
-                <p className="mt-1 text-sm text-navy/55">{a.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="rounded-2xl border border-navy/10 bg-white/80 p-6 shadow-glow backdrop-blur-sm sm:p-8">
+      <div className="mx-auto max-w-2xl px-6 py-20 sm:px-10 lg:px-16">
+        <div className="mx-auto max-w-xl rounded-2xl border border-navy/10 bg-white/80 p-6 shadow-glow backdrop-blur-sm sm:p-8">
           {submitted ? (
             <div className="flex flex-col items-center py-10 text-center">
               <div className="flex h-14 w-14 items-center justify-center rounded-full bg-royal/10">
