@@ -5,10 +5,10 @@ export default function PartnerFinalCTA() {
   return (
     <section className="relative overflow-hidden bg-navy">
       <img src={ctaImg} alt="" aria-hidden className="absolute inset-0 h-full w-full object-cover" />
-      <div className="absolute inset-0 bg-navy/80 sm:bg-gradient-to-l sm:from-navy sm:via-navy/70 sm:to-navy/10" />
+      <div className="absolute inset-0 bg-navy/70 sm:bg-gradient-to-l sm:from-navy/85 sm:via-navy/30 sm:to-transparent" />
 
       <div className="relative mx-auto max-w-[1600px] px-6 py-20 sm:px-10 lg:px-16 lg:py-28">
-        <div className="ml-auto max-w-lg text-right">
+        <div className="ml-auto max-w-lg text-left">
           <span className="inline-flex items-center rounded-full bg-white/10 px-4 py-1.5 text-xs font-bold tracking-wide text-cyan-glow">
             BUILD WITH CERTIBYT
           </span>
@@ -21,7 +21,7 @@ export default function PartnerFinalCTA() {
             assessments and verifiable professional credentials.
           </p>
 
-          <div className="mt-8 flex flex-wrap justify-end gap-4">
+          <div className="mt-8 flex flex-wrap gap-4">
             <a
               href="#enquiry-form"
               className="rounded-lg bg-white px-7 py-3.5 text-sm font-semibold text-royal shadow-glow transition-colors hover:bg-white/90"
