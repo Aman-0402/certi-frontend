@@ -5,18 +5,17 @@ export default function PartnerFinalCTA() {
   return (
     <section className="relative overflow-hidden bg-navy">
       <img src={ctaImg} alt="" aria-hidden className="absolute inset-0 h-full w-full object-cover" />
-      <div className="absolute inset-0 bg-navy/70 sm:bg-gradient-to-l sm:from-navy/85 sm:via-navy/30 sm:to-transparent" />
 
       <div className="relative mx-auto max-w-[1600px] px-6 py-20 sm:px-10 lg:px-16 lg:py-28">
         <div className="ml-auto max-w-lg text-left">
-          <span className="inline-flex items-center rounded-full bg-white/10 px-4 py-1.5 text-xs font-bold tracking-wide text-cyan-glow">
+          <span className="inline-flex items-center rounded-full bg-navy/70 px-4 py-1.5 text-xs font-bold tracking-wide text-cyan-glow shadow-[0_2px_12px_rgba(0,0,0,0.5)] backdrop-blur-sm">
             BUILD WITH CERTIBYT
           </span>
 
-          <h2 className="mt-6 text-3xl font-bold leading-tight text-white sm:text-4xl">
+          <h2 className="mt-6 text-3xl font-bold leading-tight text-white [text-shadow:0_2px_16px_rgba(0,0,0,0.85)] sm:text-4xl">
             Let's Create Trusted Certification Opportunities Together
           </h2>
-          <p className="mt-5 text-lg text-white/60">
+          <p className="mt-5 text-lg text-white/85 [text-shadow:0_2px_12px_rgba(0,0,0,0.85)]">
             Connect your organization with CertiByt and provide candidates access to secure
             assessments and verifiable professional credentials.
           </p>
