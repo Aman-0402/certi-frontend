@@ -174,7 +174,7 @@ export default function JourneyScroll({ steps }: { steps: Step[] }) {
 
   return (
     <div ref={containerRef} className="relative" style={{ height: '360vh' }}>
-      <div className="sticky top-0 flex h-screen flex-col items-center justify-center overflow-hidden bg-[#F8FAFF] pb-56">
+      <div className="sticky top-0 flex h-screen flex-col items-center justify-center overflow-hidden bg-[#F8FAFF]">
         <BackgroundLayers scrollYProgress={scrollYProgress} />
 
         <div className="relative mx-auto w-full max-w-[1600px] px-16">
