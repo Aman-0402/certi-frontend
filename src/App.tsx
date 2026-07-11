@@ -5,6 +5,7 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 import HowItWorks from './pages/HowItWorks'
 import CertificationsCatalog from './pages/CertificationsCatalog'
+import ForOrganizations from './pages/ForOrganizations'
 import Universities from './pages/Universities'
 import TrainingInstitutes from './pages/TrainingInstitutes'
 import CorporateOrganizations from './pages/CorporateOrganizations'
@@ -20,7 +21,6 @@ const COMING_SOON_ROUTES: { path: string; title: string }[] = [
   { path: '/certifications/categories', title: 'Certification Categories' },
   { path: '/certifications/featured', title: 'Featured Certifications' },
   { path: '/certifications/:slug', title: 'Certification Details' },
-  { path: '/organizations', title: 'For Organizations' },
   { path: '/contact', title: 'Contact Our Team' },
   { path: '/sign-in', title: 'Sign In' },
   { path: '/get-certified', title: 'Get Certified' },
@@ -45,6 +45,7 @@ function AppShell() {
           <Route path="/" component={Home} />
           <Route path="/how-it-works" component={HowItWorks} />
           <Route path="/certifications" component={CertificationsCatalog} />
+          <Route path="/organizations" component={ForOrganizations} />
           <Route path="/organizations/universities" component={Universities} />
           <Route path="/organizations/training-institutes" component={TrainingInstitutes} />
           <Route path="/organizations/corporate" component={CorporateOrganizations} />
