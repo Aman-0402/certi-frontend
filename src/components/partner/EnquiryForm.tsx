@@ -66,10 +66,8 @@ export default function EnquiryForm() {
   }
 
   return (
-    <section id="enquiry-form" className="bg-white">
-      <div className="mx-auto max-w-2xl px-6 py-20 sm:px-10 lg:px-16">
-        <div className="mx-auto max-w-xl rounded-2xl border border-navy/10 bg-white/80 p-6 shadow-glow backdrop-blur-sm sm:p-8">
-          {submitted ? (
+    <div id="enquiry-form" className="rounded-2xl border border-navy/10 bg-white/80 p-6 shadow-glow backdrop-blur-sm sm:p-8">
+      {submitted ? (
             <div className="flex flex-col items-center py-10 text-center">
               <div className="flex h-14 w-14 items-center justify-center rounded-full bg-royal/10">
                 <svg className="h-7 w-7 text-royal" viewBox="0 0 24 24" fill="none">
@@ -264,10 +262,8 @@ export default function EnquiryForm() {
                   Your information will only be used to review and respond to your partnership enquiry.
                 </p>
               </form>
-            </>
-          )}
-        </div>
-      </div>
-    </section>
+        </>
+      )}
+    </div>
   )
 }
