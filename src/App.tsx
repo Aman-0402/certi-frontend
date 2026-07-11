@@ -17,6 +17,7 @@ import DigitalCredentials from './pages/DigitalCredentials'
 import HelpSupport from './pages/HelpSupport'
 import Contact from './pages/Contact'
 import PrivacyPolicy from './pages/PrivacyPolicy'
+import TermsOfService from './pages/TermsOfService'
 import ComingSoon from './pages/ComingSoon'
 
 const COMING_SOON_ROUTES: { path: string; title: string }[] = [
@@ -25,7 +26,6 @@ const COMING_SOON_ROUTES: { path: string; title: string }[] = [
   { path: '/certifications/:slug', title: 'Certification Details' },
   { path: '/sign-in', title: 'Sign In' },
   { path: '/get-certified', title: 'Get Certified' },
-  { path: '/terms', title: 'Terms of Service' },
 ]
 
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, '')
@@ -57,6 +57,7 @@ function AppShell() {
           <Route path="/resources/help" component={HelpSupport} />
           <Route path="/contact" component={Contact} />
           <Route path="/privacy" component={PrivacyPolicy} />
+          <Route path="/terms" component={TermsOfService} />
           {COMING_SOON_ROUTES.map((route) => (
             <Route key={route.path} path={route.path}>
               <ComingSoon title={route.title} />
