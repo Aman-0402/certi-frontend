@@ -47,7 +47,7 @@ function StepColumn({ step, index, isActive }: { step: Step; index: number; isAc
       <div className="relative" style={{ perspective: 900 }}>
         <motion.div
           animate={{
-            scale: isActive ? (isFinal ? 1.12 : 1.05) : 0.88,
+            scale: isActive ? (isFinal ? 1.35 : 1.25) : 0.85,
             opacity: isActive ? 1 : 0.32,
             y: isActive ? -20 : 0,
             rotateY: isActive ? [0, 8, -3, 0] : 0,
