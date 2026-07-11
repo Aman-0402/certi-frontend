@@ -294,12 +294,7 @@ function ControlCenter() {
         aria-hidden
         className="pointer-events-none absolute -inset-10 -z-10 rounded-full bg-royal/[0.07] blur-3xl"
       />
-      <motion.div
-        aria-hidden
-        className="pointer-events-none absolute left-[10%] top-0 h-72 w-72 rounded-full bg-cyan-glow/10 blur-3xl"
-        animate={{ x: [0, 40, -20, 0], y: [0, -30, 20, 0] }}
-        transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut' }}
-      />
+      <div aria-hidden className="pointer-events-none absolute left-[10%] top-0 h-72 w-72 rounded-full bg-cyan-glow/10 blur-3xl" />
 
       <motion.div
         style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
@@ -423,18 +418,8 @@ export default function CorporateProcess() {
           color: '#0a1128',
         }}
       />
-      <motion.div
-        aria-hidden
-        className="pointer-events-none absolute -left-32 top-10 h-[420px] w-[420px] rounded-full bg-royal/[0.06] blur-3xl"
-        animate={{ x: [0, 50, -20, 0], y: [0, -30, 20, 0] }}
-        transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
-      />
-      <motion.div
-        aria-hidden
-        className="pointer-events-none absolute -right-24 bottom-0 h-[380px] w-[380px] rounded-full bg-cyan-glow/[0.08] blur-3xl"
-        animate={{ x: [0, -40, 20, 0], y: [0, 30, -20, 0] }}
-        transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
-      />
+      <div aria-hidden className="pointer-events-none absolute -left-32 top-10 h-[420px] w-[420px] rounded-full bg-royal/[0.06] blur-3xl" />
+      <div aria-hidden className="pointer-events-none absolute -right-24 bottom-0 h-[380px] w-[380px] rounded-full bg-cyan-glow/[0.08] blur-3xl" />
 
       <div className="relative mx-auto max-w-[1600px] px-6 sm:px-10 lg:px-16">
         <motion.div
