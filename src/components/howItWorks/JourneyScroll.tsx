@@ -164,8 +164,8 @@ export default function JourneyScroll({ steps }: { steps: Step[] }) {
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ['start start', 'end end'] })
   const lineWidth = useTransform(scrollYProgress, [0, 1], ['0%', '100%'])
   const particleLeft = useTransform(scrollYProgress, [0, 1], ['1%', '99%'])
-  const taglineOpacity = useTransform(scrollYProgress, [0.625, 1], [0, 1])
-  const taglineY = useTransform(scrollYProgress, [0.625, 1], [16, 0])
+  const taglineOpacity = useTransform(scrollYProgress, [0.5, 0.75], [0, 1])
+  const taglineY = useTransform(scrollYProgress, [0.5, 0.75], [16, 0])
 
   useMotionValueEvent(scrollYProgress, 'change', (v) => {
     const idx = Math.min(steps.length - 1, Math.max(0, Math.round(v * (steps.length - 1))))
