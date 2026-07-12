@@ -649,7 +649,7 @@ function PublicVerificationCard({ reduced }: { reduced: boolean }) {
             </motion.div>
             <p className="text-[10px] font-bold uppercase tracking-wide text-slate-400">Verification Result</p>
             <p className="mt-2 text-base font-bold" style={{ color: INK }}>
-              Aman Raj
+              Rohan Mehta
             </p>
             <p className="text-xs text-slate-400">Data Science Professional</p>
             <div className="mt-3 flex items-center gap-2 rounded-lg px-3 py-2" style={{ background: TINT }}>

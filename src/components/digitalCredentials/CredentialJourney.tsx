@@ -466,7 +466,7 @@ function CertificatePreview({ reduced }: { reduced: boolean }) {
 
         <p className="relative mt-5 text-sm text-slate-500">Awarded to</p>
         <p className="relative text-lg font-bold" style={{ color: INK }}>
-          Aman Raj
+          Priya Sharma
         </p>
         <p className="relative text-sm text-slate-500">Data Science Professional</p>
 
