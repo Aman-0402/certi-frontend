@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'wouter'
+import supportIllustration from '../../assets/contact-support-illustration.webp'
 
 const SUPPORT_TOPICS = [
   { title: 'Certification Support', desc: 'Questions about certification access or exam availability.' },
@@ -16,36 +17,6 @@ const SUPPORT_TOPIC_OPTIONS = [
   'Account Issue',
   'Other',
 ]
-
-function SupportIllustration() {
-  return (
-    <svg viewBox="0 0 260 200" fill="none" className="mx-auto w-full max-w-xs" aria-hidden>
-      <g stroke="#2255ff" strokeWidth="1.2" strokeDasharray="3 3" opacity="0.4">
-        <path d="M130 100 L60 55" />
-        <path d="M130 100 L200 55" />
-        <path d="M130 100 L130 165" />
-      </g>
-
-      <circle cx="130" cy="100" r="30" fill="rgba(34,85,255,0.06)" stroke="#2255ff" strokeWidth="1.4" />
-      <path d="M130 88l9 4v9c0 6-4 9.5-9 11.5-5-2-9-5.5-9-11.5v-9l9-4z" stroke="#2255ff" strokeWidth="1.2" strokeLinejoin="round" />
-
-      <g>
-        <circle cx="60" cy="55" r="16" fill="rgba(34,85,255,0.06)" stroke="#2255ff" strokeWidth="1.2" />
-        <rect x="52" y="47" width="16" height="12" rx="1.4" stroke="#2255ff" strokeWidth="1" />
-      </g>
-      <g>
-        <circle cx="200" cy="55" r="16" fill="rgba(34,85,255,0.06)" stroke="#2255ff" strokeWidth="1.2" />
-        <rect x="193" y="47" width="14" height="16" rx="2" stroke="#2255ff" strokeWidth="1" />
-        <path d="M197 51h6M197 55h6" stroke="#2255ff" strokeWidth="0.9" strokeLinecap="round" />
-      </g>
-      <g>
-        <circle cx="130" cy="165" r="16" fill="rgba(34,85,255,0.06)" stroke="#2255ff" strokeWidth="1.2" />
-        <rect x="122" y="158" width="16" height="10" rx="1.4" stroke="#2255ff" strokeWidth="1" />
-        <path d="M126 158v-2" stroke="#2255ff" strokeWidth="1" strokeDasharray="1.5 1.5" />
-      </g>
-    </svg>
-  )
-}
 
 type FormState = {
   fullName: string
@@ -89,7 +60,12 @@ export default function ContactSupport() {
           </p>
 
           <div className="mt-8">
-            <SupportIllustration />
+            <img
+              src={supportIllustration}
+              alt="CertiByt support: live chat, help center, and 24/7 assistance"
+              loading="lazy"
+              className="mx-auto w-full max-w-md"
+            />
           </div>
 
           <div className="mt-8 flex flex-col gap-6">
