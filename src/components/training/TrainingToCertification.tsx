@@ -1,18 +1,7 @@
 import { useRef } from 'react'
 import type { MouseEvent as ReactMouseEvent, ReactNode } from 'react'
 import { motion, useReducedMotion, useMotionValue, useSpring, useTransform } from 'framer-motion'
-import {
-  GraduationCap,
-  Users,
-  Ticket,
-  ShieldCheck,
-  FileBadge2,
-  Building2,
-  CheckCircle2,
-  QrCode,
-  Sparkles,
-  BadgeCheck,
-} from 'lucide-react'
+import { GraduationCap, Users, Ticket, ShieldCheck, FileBadge2, Building2 } from 'lucide-react'
 
 const INK = '#0F172A'
 const PRIMARY = '#2563EB'
@@ -158,18 +147,6 @@ export default function TrainingToCertification() {
           <WorkflowRow stages={STAGES.slice(0, 3)} startIndex={0} reduced={reduced} />
           <WorkflowRow stages={STAGES.slice(3, 6)} startIndex={3} reduced={reduced} />
         </div>
-
-        {/* floating ecosystem illustration */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={fadeUp}
-          transition={{ duration: 0.7 }}
-          className="relative mt-28 flex justify-center"
-        >
-          <EcosystemIllustration reduced={reduced} />
-        </motion.div>
       </div>
     </section>
   )
@@ -367,91 +344,6 @@ function StageCard({ stage, index, reduced }: { stage: (typeof STAGES)[number]; 
         </p>
         <p className="text-xs leading-relaxed text-slate-500">{stage.desc}</p>
       </GlassPanel>
-    </motion.div>
-  )
-}
-
-/* ---------- floating ecosystem illustration ---------- */
-
-const ORBIT_NODES = [
-  { Icon: GraduationCap, className: 'left-[6%] top-[10%]', duration: 6 },
-  { Icon: Users, className: 'right-[8%] top-[6%]', duration: 6.5, delay: 0.4 },
-  { Icon: QrCode, className: 'left-[2%] bottom-[16%]', duration: 5.5, delay: 0.8 },
-  { Icon: BadgeCheck, className: 'right-[4%] bottom-[10%]', duration: 7, delay: 0.2 },
-  { Icon: Sparkles, className: 'left-[24%] top-[-4%]', duration: 5, delay: 0.6 },
-  { Icon: CheckCircle2, className: 'right-[22%] bottom-[-2%]', duration: 6.2, delay: 1 },
-]
-
-function EcosystemIllustration({ reduced }: { reduced: boolean }) {
-  const tilt = useTilt(reduced, 4)
-
-  return (
-    <motion.div
-      ref={tilt.ref}
-      onMouseEnter={tilt.onEnter}
-      onMouseMove={tilt.onMove}
-      onMouseLeave={tilt.onLeave}
-      style={tilt.style}
-      className="relative flex h-[320px] w-full max-w-2xl items-center justify-center"
-    >
-      {/* connecting lines */}
-      <svg viewBox="0 0 400 260" className="pointer-events-none absolute inset-0 h-full w-full" aria-hidden>
-        <defs>
-          <linearGradient id="ecosystemLine" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor={PRIMARY} stopOpacity="0.5" />
-            <stop offset="100%" stopColor={SECONDARY} stopOpacity="0.15" />
-          </linearGradient>
-        </defs>
-        {[
-          [200, 130, 40, 30],
-          [200, 130, 360, 20],
-          [200, 130, 20, 210],
-          [200, 130, 380, 220],
-          [200, 130, 110, 8],
-          [200, 130, 290, 250],
-        ].map(([x1, y1, x2, y2], i) => (
-          <motion.line
-            key={i}
-            x1={x1}
-            y1={y1}
-            x2={x2}
-            y2={y2}
-            stroke="url(#ecosystemLine)"
-            strokeWidth="1.4"
-            strokeDasharray="4 4"
-            initial={{ pathLength: reduced ? 1 : 0, opacity: 0 }}
-            whileInView={{ pathLength: 1, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.2 + i * 0.1 }}
-          />
-        ))}
-      </svg>
-
-      {/* central certificate node */}
-      <motion.div
-        className="relative z-10 flex h-28 w-28 flex-col items-center justify-center gap-1 rounded-[24px]"
-        style={{
-          background: `linear-gradient(135deg, ${PRIMARY}, ${SECONDARY})`,
-          boxShadow: '0 25px 60px rgba(37,99,235,0.35)',
-        }}
-        animate={reduced ? undefined : { y: [0, -10, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-      >
-        <FileBadge2 className="h-9 w-9 text-white" strokeWidth={1.5} />
-        <span className="text-[10px] font-bold uppercase tracking-wide text-white/85">Verified</span>
-      </motion.div>
-
-      {/* orbiting nodes */}
-      {ORBIT_NODES.map((node, i) => (
-        <motion.div
-          key={i}
-          className={`absolute flex h-12 w-12 items-center justify-center rounded-full border border-white/70 bg-white/90 shadow-md ${node.className}`}
-          animate={reduced ? undefined : { y: [0, -12, 0] }}
-          transition={{ duration: node.duration, repeat: Infinity, ease: 'easeInOut', delay: node.delay ?? 0 }}
-        >
-          <node.Icon className="h-5 w-5" style={{ color: i % 2 === 0 ? PRIMARY : SECONDARY }} strokeWidth={1.75} />
-        </motion.div>
-      ))}
     </motion.div>
   )
 }
