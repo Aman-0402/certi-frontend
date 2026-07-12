@@ -21,6 +21,7 @@ certi-frontend/
 │   │   ├── Home.tsx                   # Composes homepage sections
 │   │   ├── HowItWorks.tsx             # /how-it-works
 │   │   ├── CertificationsCatalog.tsx  # /certifications — search/filter/sort catalog
+│   │   ├── ForOrganizations.tsx       # /organizations — hub linking to the 3 org-type pages
 │   │   ├── Universities.tsx           # /organizations/universities
 │   │   ├── TrainingInstitutes.tsx     # /organizations/training-institutes
 │   │   ├── CorporateOrganizations.tsx # /organizations/corporate
@@ -30,6 +31,9 @@ certi-frontend/
 │   │   ├── SecureAssessments.tsx      # /resources/secure-assessments
 │   │   ├── DigitalCredentials.tsx     # /resources/digital-credentials
 │   │   ├── HelpSupport.tsx            # /resources/help — FAQ + support request form
+│   │   ├── Contact.tsx                # /contact — contact info + message form
+│   │   ├── PrivacyPolicy.tsx          # /privacy — static legal doc
+│   │   ├── TermsOfService.tsx         # /terms — static legal doc
 │   │   └── ComingSoon.tsx             # Generic placeholder for not-yet-built routes
 │   ├── components/
 │   │   ├── Navbar.tsx                 # Fixed, transparent->solid on scroll, click-to-toggle dropdowns
@@ -43,15 +47,18 @@ certi-frontend/
 │   │   │                              # TrainingPartnershipCTA
 │   │   ├── corporate/                 # CorporateHero, CorporateProcess, WorkforceInfrastructure,
 │   │   │                              # CorporatePartnershipCTA
-│   │   ├── partner/                   # PartnerHero, WhoCanPartner, PartnerProcess, EnquiryForm,
-│   │   │                              # PartnerFinalCTA
+│   │   ├── partner/                   # PartnerHero, WhoCanPartner, PartnerProcess, PartnershipGateway
+│   │   │                              # (audience cards + real EnquiryForm embedded side-by-side),
+│   │   │                              # EnquiryForm (exports just the form card, no wrapping <section>
+│   │   │                              # — embedded inside PartnershipGateway), PartnerFinalCTA
 │   │   ├── verify/                    # VerifyHero, VerificationResult, FindCertificateId
 │   │   ├── about/                     # AboutHero, OurPurpose, WhatWereBuilding, OurVision, AboutFinalCTA
-│   │   ├── secureAssessments/         # SecureAssessmentsHero, ProtectionGrid, AssessmentJourney,
-│   │   │                              # SecureAssessmentsFinalCTA
+│   │   ├── secureAssessments/         # SecureAssessmentsHero, ProtectionGrid, AssessmentJourney
+│   │   │                              # ("Security Fortress" concentric-ring visual), SecureAssessmentsFinalCTA
 │   │   ├── digitalCredentials/        # CredentialsHero, WhatMakesVerifiable, CredentialJourney,
 │   │   │                              # CredentialsFinalCTA
-│   │   └── help/                      # HelpHero, HelpTopics, ContactSupport
+│   │   ├── help/                      # HelpHero, HelpTopics, ContactSupport
+│   │   └── contact/                   # ContactHero, ContactForm
 │   ├── data/
 │   │   ├── certifications.ts          # Mock certification catalog (see Data below)
 │   │   ├── certificates.ts            # Mock Certificate-ID -> verification-record lookup
@@ -78,7 +85,7 @@ certi-frontend/
 - **Imports**: relative imports (`../components/...`, `../assets/...`). No path aliases configured yet.
 - **Icons**: inline SVG components co-located in the file that uses them (see any component's `*Icon` helper) — no icon library installed. When real artwork is provided for a section, swap the SVG placeholder for the image import; don't leave both.
 - **Animation**: `framer-motion` is installed — used for fade-up on scroll (`whileInView`), hover lift (`whileHover={{ y: -4 }}`), and floating/looping animations on hero visuals. Keep it subtle; don't animate every element.
-- **Forms**: no backend exists (see Known Gaps), so forms are local-only — validate client-side, hold state in `useState`, and swap the form body for a success-state card on submit (never a browser `alert()`). See `components/partner/EnquiryForm.tsx` for the reference pattern (native `required`/`type=email` validation plus manual validation for the multi-select and checkbox fields wouter/HTML can't validate natively).
+- **Forms**: no backend exists (see Known Gaps), so forms are local-only — validate client-side, hold state in `useState`, and swap the form body for a success-state card on submit (never a browser `alert()`). See `components/partner/EnquiryForm.tsx` for the reference pattern (native `required`/`type=email` validation plus manual validation for the multi-select and checkbox fields wouter/HTML can't validate natively). Note: `EnquiryForm` exports just the card (`<div id="enquiry-form">`, no wrapping `<section>`) so it can be embedded directly inside `PartnershipGateway`'s right column — don't wrap it in another `<section>` if reusing it elsewhere, and don't recreate a separate standalone enquiry-form section on the Partner page.
 - **Responsive**: the whole site is built mobile-first — `grid-cols-1` base with `sm:`/`lg:` breakpoints added, never an unprefixed multi-column grid. This has been verified with real headless-browser screenshots (Playwright — see Responsive Testing below), not just code review. Keep following this pattern for new sections.
 
 ## Design System
@@ -90,7 +97,9 @@ certi-frontend/
 - **B2B page pattern** (Universities / Training Institutes / Corporate Organizations / Partner Enquiry): each follows Hero → Process (icon flow strip + 4 numbered steps with dashed connectors) → Benefit cards (3 or 4, icon + title + desc) → gradient Partnership CTA (navy→royal, custom SVG illustration, never a stock photo or globe). Keep these pages **short** — this is an explicit, repeated user instruction: no testimonials, stats, pricing, FAQs, or case studies until there's real partner evidence to back them.
 - **Resource page pattern** (Secure Assessments / Digital Credentials / Help & Support): Hero (badge + headline + trust points/search) → feature/protection grid (4 cards) → process journey (flow strip + 4 numbered steps) or FAQ topics → gradient final CTA. Same visual language as the B2B pages.
 - **Process/CTA illustrations**: when a section spec says "no large image" / "no people" / "premium 3D visual" / "no globe", build an inline SVG illustration (icon nodes + dashed glowing connector lines, `#5eead4` cyan / `#7c9cff` light-royal on transparent), not a photo. Only use a real uploaded image when the spec explicitly says "use your uploaded X image," and prefer reusing an existing on-topic asset already in the repo (e.g. the real certificate image) over fabricating a new illustration when one is a better fit.
-- **Background images that carry text**: use a gradient fade (e.g. `from-navy via-navy/70 to-navy/10`) rather than a heavy flat overlay — a too-dark gradient (`via-navy/85`+) has repeatedly needed correcting because it washes the image out. When in doubt, err toward the image being more visible, not less.
+- **Background images that carry text**: default to no overlay at all — use `[text-shadow:...]` on the heading/paragraph (and a translucent `bg-navy/70` pill behind badges) for legibility instead of darkening the image. If an overlay is unavoidable, use a gradient fade (e.g. `from-navy/85 via-navy/30 to-transparent`), never a flat `bg-navy/70`+ wash — this has repeatedly needed correcting because it hides the image. "100% visible" from the user means literally no darkening overlay.
+- **Scroll-jacked / abstract-dashboard sections** (`JourneyScroll`, `CorporateProcess`'s Control Center, `AssessmentJourney`'s Security Fortress, `PartnershipGateway`'s hub): percentage-positioned absolute nodes work well at sm+ widths but collide/overlap under ~400px — always give these a dedicated mobile fallback (either `hidden sm:flex` on the absolute nodes + a simple stacked list below, as in `AssessmentJourney`/`PartnerProcess`'s `MobileStack`, or hide the connector SVG on mobile and let cards degrade to a plain vertical stack). Don't assume the percentage layout just "scales down" — verify at 390px specifically.
+- **Never combine `blur-*` with a continuously-animated `x`/`y` (or `left`/`top`) transform on a decorative element** — this is the #1 cause of scroll jank reported in this project. `blur` + moving position forces the browser to recompute the blurred region every frame regardless of scroll activity. Decorative glow orbs/blobs should be static (`<div>`, no `animate`), or pulse via `opacity`/`scale` only (position fixed) if motion is wanted. Rotation (`animate={{ rotate: 360 }}`) and translate-only loops are fine — the blur is the trigger, not motion itself.
 
 ## Data
 - `src/data/certifications.ts` — mock certification catalog (`CERTIFICATIONS` array), typed `Certification[]`. Includes a `certificateIncluded: boolean` flag — **only set `true` when a cert is actually meant to issue a credential**; this models the real backend rule ("an exam without a configured certificate template can still run but doesn't issue a certificate") so the UI's "Digital Certificate Included" badge stays honest once real data replaces the mock.
@@ -124,7 +133,7 @@ certi-frontend/
 - **Dev server hygiene**: this project has repeatedly ended up with multiple stale `vite` processes on ports 5173/5174 from earlier sessions (started before a config change like the Pages `base` fix), serving stale/broken output. If something looks broken in-browser but the code/build is correct, check `netstat -ano | findstr LISTENING | findstr "517"` for duplicate dev servers before debugging further, kill stale PIDs, and restart clean.
 
 ## Known Gaps / Not Yet Built
-- Still `ComingSoon`-stubbed: `/organizations` (overview), `/certifications/categories`, `/certifications/featured`, `/certifications/:slug` (detail page), `/resources/verification` (removed — was a duplicate of `/verify`), `/sign-in`, `/get-certified`, `/contact`, `/privacy`, `/terms`. See `COMING_SOON_ROUTES` in `App.tsx` for the current list.
+- Still `ComingSoon`-stubbed: `/certifications/categories`, `/certifications/featured`, `/certifications/:slug` (detail page), `/sign-in`, `/get-certified`. See `COMING_SOON_ROUTES` in `App.tsx` for the current list. `/organizations`, `/contact`, `/privacy`, and `/terms` are now real pages.
 - No backend/API integration yet (this is frontend-only so far). The partner enquiry form and support request form both submit locally only — no network call.
 - **Product note for whenever the backend exists**: the partner enquiry form must NOT auto-create an organization account on submit — it should create a reviewable lead only; account creation is a separate deliberate step after CertiByt's team reviews the enquiry.
 - No test suite configured.
