@@ -70,7 +70,7 @@ export default function VerifyHero({
                 value={certId}
                 onChange={(e) => onChange(e.target.value)}
                 placeholder="Enter your Certificate ID"
-                className="w-full flex-1 rounded-lg border border-navy/15 px-4 py-3.5 text-sm text-navy outline-none transition-shadow focus:border-royal/40 focus:shadow-sm"
+                className="w-full flex-1 rounded-lg border border-navy/15 bg-white px-4 py-3.5 text-sm text-navy outline-none transition-shadow focus:border-royal/40 focus:shadow-sm"
               />
               <button
                 type="submit"

@@ -100,7 +100,7 @@ export default function EnquiryForm() {
                     value={form.orgName}
                     onChange={(e) => setForm({ ...form, orgName: e.target.value })}
                     placeholder="Enter your organization name"
-                    className="mt-1.5 w-full rounded-lg border border-navy/15 px-3.5 py-2.5 text-sm text-navy outline-none transition-shadow focus:border-royal/40 focus:shadow-sm"
+                    className="mt-1.5 w-full rounded-lg border border-navy/15 bg-white px-3.5 py-2.5 text-sm text-navy outline-none transition-shadow focus:border-royal/40 focus:shadow-sm"
                   />
                 </div>
 
@@ -129,7 +129,7 @@ export default function EnquiryForm() {
                       value={form.fullName}
                       onChange={(e) => setForm({ ...form, fullName: e.target.value })}
                       placeholder="Enter your full name"
-                      className="mt-1.5 w-full rounded-lg border border-navy/15 px-3.5 py-2.5 text-sm text-navy outline-none transition-shadow focus:border-royal/40 focus:shadow-sm"
+                      className="mt-1.5 w-full rounded-lg border border-navy/15 bg-white px-3.5 py-2.5 text-sm text-navy outline-none transition-shadow focus:border-royal/40 focus:shadow-sm"
                     />
                   </div>
                   <div>
@@ -141,7 +141,7 @@ export default function EnquiryForm() {
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
                       placeholder="name@organization.com"
-                      className="mt-1.5 w-full rounded-lg border border-navy/15 px-3.5 py-2.5 text-sm text-navy outline-none transition-shadow focus:border-royal/40 focus:shadow-sm"
+                      className="mt-1.5 w-full rounded-lg border border-navy/15 bg-white px-3.5 py-2.5 text-sm text-navy outline-none transition-shadow focus:border-royal/40 focus:shadow-sm"
                     />
                   </div>
                 </div>
@@ -156,7 +156,7 @@ export default function EnquiryForm() {
                       value={form.phone}
                       onChange={(e) => setForm({ ...form, phone: e.target.value })}
                       placeholder="Enter your contact number"
-                      className="mt-1.5 w-full rounded-lg border border-navy/15 px-3.5 py-2.5 text-sm text-navy outline-none transition-shadow focus:border-royal/40 focus:shadow-sm"
+                      className="mt-1.5 w-full rounded-lg border border-navy/15 bg-white px-3.5 py-2.5 text-sm text-navy outline-none transition-shadow focus:border-royal/40 focus:shadow-sm"
                     />
                   </div>
                   <div>
@@ -168,7 +168,7 @@ export default function EnquiryForm() {
                       value={form.website}
                       onChange={(e) => setForm({ ...form, website: e.target.value })}
                       placeholder="Enter organization website"
-                      className="mt-1.5 w-full rounded-lg border border-navy/15 px-3.5 py-2.5 text-sm text-navy outline-none transition-shadow focus:border-royal/40 focus:shadow-sm"
+                      className="mt-1.5 w-full rounded-lg border border-navy/15 bg-white px-3.5 py-2.5 text-sm text-navy outline-none transition-shadow focus:border-royal/40 focus:shadow-sm"
                     />
                   </div>
                 </div>
@@ -229,7 +229,7 @@ export default function EnquiryForm() {
                     value={form.requirements}
                     onChange={(e) => setForm({ ...form, requirements: e.target.value })}
                     placeholder="Tell us about your candidates, certification requirements, or collaboration goals..."
-                    className="mt-1.5 w-full resize-none rounded-lg border border-navy/15 px-3.5 py-2.5 text-sm text-navy outline-none transition-shadow focus:border-royal/40 focus:shadow-sm"
+                    className="mt-1.5 w-full resize-none rounded-lg border border-navy/15 bg-white px-3.5 py-2.5 text-sm text-navy outline-none transition-shadow focus:border-royal/40 focus:shadow-sm"
                   />
                 </div>
 
